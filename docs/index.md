@@ -1,1 +1,1 @@
-[Documentation](Stuck-Between-Pixels/Acquire/docs/javadoc/index.html)
+[Documentation](../javadoc/index.html)
