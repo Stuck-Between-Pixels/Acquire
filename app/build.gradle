@@ -22,12 +22,16 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
     implementation 'org.slf4j:slf4j-api:2.0.0-alpha7'
     implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.codehaus.groovy:groovy:3.0.10'
+    testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
+    testImplementation "org.spockframework:spock-core"
+    testImplementation "org.spockframework:spock-junit4"
 }
 
 application {
@@ -46,11 +50,12 @@ license {
 
 jacoco {
     toolVersion = "0.8.7"
-    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir') as Directory
 }
 
 test {
     finalizedBy jacocoTestReport
+    useJUnitPlatform()
 }
 
 jacocoTestReport {
@@ -74,13 +79,8 @@ jacocoTestCoverageVerification {
     }
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
-
 javadoc {
-    source = sourceSets.main.allJava
+    //source = sourceSets.main.allJava
     classpath = configurations.runtimeClasspath
     destinationDir = file("${rootDir}/docs/javadoc")
 }
