@@ -10,6 +10,12 @@ TBA
 <!-- We need to come up with a description here. --> 
 
 # Table of Contents <!-- I bet we will need this -->
+1. [Installation](#install----how-to-install---)  
+2. [Usage](#-usage----how-to-use-the-project---)  
+3. [Testing](#run-tests----how-to-run-tests---)
+4. [Authors](#authors)
+5. [Credits](#-credits)
+6. [License](#-license)
 
 # Install <!-- How to install -->
 TBA 
