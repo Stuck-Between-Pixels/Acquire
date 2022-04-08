@@ -1,7 +1,5 @@
 package Acquire;
 
-import lombok.Getter;
-
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -10,7 +8,7 @@ import java.util.LinkedList;
  * @author Ben Thomas
  */
 public class TilePile {
-    @Getter private final LinkedList<Tile> tiles = new LinkedList<>();
+    private final LinkedList<Tile> tiles = new LinkedList<>();
 
     /**
      * Adds the given collection of {@link Tile tiles} to the TilePile
@@ -26,5 +24,13 @@ public class TilePile {
      */
     public TilePileIterator iterator() {
         return new TilePileIterator(tiles);
+    }
+
+    /**
+     * Retries the number of tiles the tile pile is holding
+     * @return number of tiles in the tile pile
+     */
+    public int size() {
+        return tiles.size();
     }
 }

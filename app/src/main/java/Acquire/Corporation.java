@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -13,7 +14,7 @@ import java.util.LinkedList;
 public class Corporation {
     @Getter private final String name;
     @Getter @Setter private boolean safe = false;
-    @Getter private final LinkedList<Tile> tiles = new LinkedList<>();
+    private final LinkedList<Tile> tiles = new LinkedList<>();
 
     /**
      * Constructs a Corporation object with the given name as an identifier
@@ -29,6 +30,14 @@ public class Corporation {
      */
     public int getNumTiles() {
         return tiles.size();
+    }
+
+    /**
+     * Creates an iterator of the corporation's stocks
+     * @return iterator of the corporation's stocks
+     */
+    public Iterator<Tile> iterator() {
+        return tiles.iterator();
     }
 
     /**
