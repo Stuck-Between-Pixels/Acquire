@@ -2,10 +2,13 @@ package Acquire;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NonNull;
 
 import java.nio.BufferOverflowException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * The player class for the game. This class holds data relevant to the player and provides ways to modify said data
@@ -15,8 +18,8 @@ import java.util.Collection;
 public class Player {
     @Getter private final String name;
     @Getter @Setter private int money = 6_000;
-    @Getter private final ArrayList<Tile> tiles = new ArrayList<>(6);
-    @Getter private final ArrayList<Stock> stocks = new ArrayList<>();
+    private final ArrayList<Tile> tiles = new ArrayList<>(6);
+    private final ArrayList<Stock> stocks = new ArrayList<>();
 
     /**
      * Constructor for a new Player which accepts a name to give the player as identification
@@ -41,7 +44,7 @@ public class Player {
      * @param tileCollection to add to the player's already owned collection of tiles
      * @throws BufferOverflowException if the player can not store all tiles in the given collection
      */
-    public void giveTiles(Collection<Tile> tileCollection) {
+    public void giveTiles(@NonNull Collection<Tile> tileCollection) {
         if (tiles.size() + tileCollection.size() > 6) throw new BufferOverflowException();
         tiles.addAll(tileCollection);
     }
@@ -58,7 +61,7 @@ public class Player {
     /**
      * Removes a tile by tile position from the player
      * @param position of the tile to remove
-     * @throws IndexOutOfBoundsException if the player does not have a tile with the given position
+     * @throws NoSuchElementException if the player does not have a tile with the given position
      */
     public void removeTileByPosition(int position) {
         Tile remove = null;
@@ -68,8 +71,24 @@ public class Player {
                 break;
             }
         }
-        if (remove == null) throw new IndexOutOfBoundsException();
+        if (remove == null) throw new NoSuchElementException();
         tiles.remove(remove);
+    }
+
+    /**
+     * Retries the number of tiles the player has
+     * @return the number of tiles the player has
+     */
+    public int getNumTiles() {
+        return tiles.size();
+    }
+
+    /**
+     * Creates an iterator for the player's tiles
+     * @return iterator of the player's tiles
+     */
+    public Iterator<Tile> tileIterator() {
+        return tiles.iterator();
     }
 
     /**
@@ -92,7 +111,7 @@ public class Player {
     /**
      * Removes a stock by the stock's corporation from the player's stocks
      * @param corporation of the stock to be removed from the player's stocks
-     * @throws IndexOutOfBoundsException if the player does not have a stock with the given corporation
+     * @throws NoSuchElementException if the player does not have a stock with the given corporation
      */
     public void removeStockByCorp(Corporation corporation) {
         Stock remove = null;
@@ -102,7 +121,23 @@ public class Player {
                 break;
             }
         }
-        if (remove == null) throw new IndexOutOfBoundsException();
+        if (remove == null) throw new NoSuchElementException();
         stocks.remove(remove);
+    }
+
+    /**
+     * Retries the number of stocks the player has
+     * @return the number of stocks the player has
+     */
+    public int getNumStock() {
+        return stocks.size();
+    }
+
+    /**
+     * Creates an iterator for the player's stocks
+     * @return iterator of the player's stocks
+     */
+    public Iterator<Stock> stockIterator() {
+        return stocks.iterator();
     }
 }
