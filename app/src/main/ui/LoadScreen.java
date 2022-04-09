@@ -1,4 +1,4 @@
-package Acquire;
+package Acquire.ui;
 
 import javafx.stage.*;
 
