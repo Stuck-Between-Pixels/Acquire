@@ -12,7 +12,8 @@ plugins {
     id "io.freefair.lombok" version "6.4.1"
     id 'jacoco'
     id "com.github.hierynomus.license-base" version "0.16.1"
-    id "org.openjfx.javafxplugin" version "0.0.12"
+    id "org.openjfx.javafxplugin" version "0.0.10"
+    id 'org.beryx.jlink' version '2.24.1'
     id 'groovy'
 }
 
@@ -38,6 +39,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:2.0.0-alpha7'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.jetbrains:annotations:20.1.0'
+    implementation('org.controlsfx:controlsfx:11.1.0')
 
     testImplementation 'org.spockframework:spock-core:2.2-M1-groovy-3.0'
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
@@ -45,14 +47,14 @@ dependencies {
 
 application {
     // Define the main module for the application.
-    mainMethod = 'Acquire.main'
+    mainModule = 'Acquire'
     // Define the main class for the application.
-    mainClass = 'Acquire.App'
+    mainClass = 'Acquire.UIController'
 }
 
 javafx {
     version = "17.0.2"
-    modules = [ 'javafx.controls' ]
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 license {
@@ -96,4 +98,16 @@ javadoc {
     source = sourceSets.main.allJava
     classpath = configurations.runtimeClasspath
     destinationDir = file("${rootDir}/docs/javadoc")
+}
+
+jlink {
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'app'
+    }
+}
+
+jlinkZip {
+    group = 'distribution'
 }
