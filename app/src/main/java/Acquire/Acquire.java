@@ -1,4 +1,4 @@
-package Acquire.ui;
+package Acquire;
 
 public class Acquire {
 }

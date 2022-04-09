@@ -18,7 +18,7 @@ plugins {
 }
 
 // Stuff for javafx
-//group 'ui'
+group 'ui'
 version '1.0-SNAPSHOT'
 
 javafx {
@@ -54,10 +54,10 @@ application {
     mainClass = 'Acquire.App'
 }
 
-//javafx {
-//    version = "17.0.2"
-//    modules = [ 'javafx.controls', 'javafx.fxml' ]
-//}
+javafx {
+    version = "17.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
 
 license {
     header = project.file('LICENSE')
@@ -69,6 +69,8 @@ jacoco {
 }
 
 test {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
 

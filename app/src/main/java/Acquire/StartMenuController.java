@@ -1,4 +1,4 @@
-package Acquire.ui;
+package Acquire;
 
 import javafx.fxml.*;
 import javafx.scene.control.Alert;
