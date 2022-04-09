@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.stage.Stage?>
+
+<Stage maximized="true" minHeight="720.0" minWidth="1080.0" title="Game" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <scene>
+      <Scene>
+         <root>
+            <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-image: #2A4AD0;">
+               <children>
+                  <VBox id="BuildingCards" alignment="BASELINE_CENTER" layoutX="45.0" layoutY="200.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <children>
+                                    <ImageView fitHeight="200.0" fitWidth="100.0">
+                                       <image>
+                                          <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/Continental_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="200.0" fitWidth="100.0">
+                                       <image>
+                                          <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/Imperial_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="200.0" fitWidth="100.0">
+                                       <image>
+                                          <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/Tower_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <ImageView fitHeight="200.0" fitWidth="100.0">
+                                       <image>
+                                          <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/Sackson_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="200.0" fitWidth="100.0">
+                                       <image>
+                                          <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/Festival_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="200.0" fitWidth="100.0">
+                                       <image>
+                                          <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/American_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <ImageView fitHeight="200.0" fitWidth="100.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Building_Placeholders/Worldwide_Building.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <StackPane layoutX="547.0" layoutY="225.0" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="600.0" fitWidth="800.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/GameBoard.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <HBox alignment="CENTER" layoutX="320.0" layoutY="70.0" prefHeight="100.0" prefWidth="150.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/Continental_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/Sackson_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/Imperial_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/Festival_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/Tower_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/American_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="175.0">
+                           <image>
+                              <Image url="@../local_acquire/Acquire/app/src/main/javafx/placeholders/Stock_Placeholders/Worldwide_Stock_Placeholder.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="40.0" prefWidth="346.0" spacing="10.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="250.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Rectangle accessibleRole="PARENT" arcHeight="5.0" arcWidth="5.0" fill="#ea99998c" height="60.0" stroke="#cf2a27" strokeType="INSIDE" strokeWidth="3.0" width="345.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </StackPane>
+                        <Rectangle accessibleRole="PARENT" arcHeight="5.0" arcWidth="5.0" fill="#9fc5f88c" height="60.0" layoutX="10.0" layoutY="10.0" stroke="#2b78e4" strokeType="INSIDE" strokeWidth="3.0" width="345.0" />
+                        <Rectangle accessibleRole="PARENT" arcHeight="5.0" arcWidth="5.0" fill="#b4a7d68c" height="60.0" layoutX="10.0" layoutY="80.0" stroke="#9900ff" strokeType="INSIDE" strokeWidth="3.0" width="345.0" />
+                        <Rectangle accessibleRole="PARENT" arcHeight="5.0" arcWidth="5.0" fill="#b6d7a88c" height="60.0" layoutX="10.0" layoutY="151.0" stroke="#009e0f" strokeType="INSIDE" strokeWidth="3.0" width="345.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </root>
+      </Scene>
+   </scene>
+</Stage>

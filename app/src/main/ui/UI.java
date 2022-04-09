@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package Acquire;
+package Acquire.ui;
 
-import javafx.scene.*;
-import javafx.stage.*;
-import javafx.application.*;
-
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 /**
  * A controller class to start and update the user interface
  *
@@ -65,6 +65,7 @@ public class UIController extends Application {
      */
     @Override
     public void start(Stage stage) {
+        FXMLLoader loader = new FXMLLoader(UIController.class.getResource("/ui/StartMenu.fxml"));
         this.stage = stage;
         stage.setTitle("Acquire");
         stage.setScene(startMenu);
@@ -89,3 +90,6 @@ public class UIController extends Application {
         Application.launch(args);
     }
 }
+
+
+
