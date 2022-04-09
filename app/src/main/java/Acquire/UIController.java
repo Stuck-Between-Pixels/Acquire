@@ -35,12 +35,12 @@ import javafx.application.*;
 public class UIController extends Application {
 
     private Acquire currentGame;
-    private MainGame gameScreen;
-    private SaveScreen saveScreen;
-    private LoadScreen loadScreen;
-    private StartMenu startMenu;
-    private SellStock sellStockScreen;
-    private BuyStock buyStockScreen;
+    private final MainGame gameScreen;
+    private final SaveScreen saveScreen;
+    private final LoadScreen loadScreen;
+    private final StartMenu startMenu;
+    private final SellStock sellStockScreen;
+    private final BuyStock buyStockScreen;
     private Stage stage;
 
     /**

@@ -29,8 +29,15 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:2.0.0-alpha7'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.jetbrains:annotations:20.1.0'
+
     testImplementation 'org.spockframework:spock-core:2.2-M1-groovy-3.0'
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
+
+    testImplementation 'org.testfx:testfx-core:4.0.16-alpha'
+    testImplementation 'org.testfx:testfx-spock:4.0.16-alpha'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.testfx:testfx-junit5:4.0.16-alpha'
 }
 
 application {
