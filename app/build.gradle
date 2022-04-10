@@ -49,8 +49,7 @@ dependencies {
 }
 
 application {
-    // Define the main module for the application.
-    mainModule = 'Acquire'
+
     // Define the main class for the application.
     mainClass = 'Acquire.App'
 }
