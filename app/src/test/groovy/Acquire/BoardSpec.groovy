@@ -11,7 +11,17 @@ import spock.lang.Specification
 
 class BoardSpec extends Specification {
 
-    private Board board = new Board(null, null, null, null, null, null)
+    Corporation corp = new Corporation("WAP")
+    Corporation corp2 = new Corporation("WAP2")
+    Stock[] stocks = [new Stock(corp), new Stock(corp), new Stock(corp)]
+    ArrayList<Tile> tileList = new ArrayList<Tile>(Arrays.asList(new Tile(1), new Tile(2), new Tile(3)))
+    TilePileIterator tiles = new TilePileIterator(tileList)
+    final Corporation[] corporations = [corp, corp2]
+    final ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player("Jim"), new Player("Jimmy"), new Player("Jimthony"), new Player("Jimtholomew")))
+    final ArrayList<Tile> tilesPlaced = new ArrayList<Tile>(Arrays.asList(new Tile(4), new Tile(5)))
+    Player currentTurn = players.get(0)
+
+    Board board = new Board(tiles, stocks, corporations, players, tilesPlaced, currentTurn)
 
 
     /**
@@ -22,7 +32,7 @@ class BoardSpec extends Specification {
      */
     def "Place tile actually places tile"() {
         setup:
-        Tile tile = new Tile()
+        Tile tile = new Tile(1)
 
         when: "A tile is placed"
         board.placeTile(tile)
@@ -36,30 +46,19 @@ class BoardSpec extends Specification {
      * Tests whether or not getState returns an object with the same innards.
      */
     def "GetState returns this object"() {
-        setup:
-
-        Stock[] stocks = [new Stock(), new Stock(), new Stock()]
-        Tile[] tileList = [new Tile(), new Tile(), new Tile()]
-        TilePileIterator tiles = new TilePileIterator(tileList)
-        final Corporation[] corporations = [new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation()]
-        final ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(), new Player(), new Player(), new Player()))
-        final ArrayList<Tile> tilesPlaced = new ArrayList<Tile>(Arrays.asList(new Tile(), new Tile()))
-        Player currentTurn = players[0]
-
-        board = new Board(tiles, stocks, corporations, players, tilesPlaced, currentTurn)
 
         when: "getState is called"
 
         Board board2 = board.getState()
 
         then: "check that all data is the same"
-        board.tilesPlaced == board2.tilesPlaced
-        board.stocks == board2.stocks
-        board.tile == board2.tile
-        board.corporations == board2.corporations
-        board.players == board2.players
-        board.currentTurn == board2.currentTurn
-
+        board.tilesPlaced.is(board2.tilesPlaced)
+        board.stocks.is(board2.stocks)
+        board.corporations.is(board2.corporations)
+        board.players.is(board2.players)
+        board.currentTurn.is(board2.currentTurn)
+        //There is no way to see if they have the same
+        //tilePileIterator with the access rights that are given.
     }
 
     /**
@@ -68,12 +67,12 @@ class BoardSpec extends Specification {
      */
     def "GetTile returns a valid tile"() {
         setup:
-        Tile tile1 = new Tile()
-        Tile tile2 = new Tile()
-        Tile tile3 = new Tile()
-        Tile tile4 = new Tile()
+        Tile tile1 = new Tile(1)
+        Tile tile2 = new Tile(2)
+        Tile tile3 = new Tile(3)
+        Tile tile4 = new Tile(4)
 
-        Tile[] tiles = [tile1, tile2, tile3, tile4]
+        ArrayList<Tile> tiles = new ArrayList<Tile>(Arrays.asList(tile1, tile2, tile3, tile4))
 
         Board board = new Board(new TilePileIterator(tiles), null, null, null, null, null)
 
@@ -89,10 +88,10 @@ class BoardSpec extends Specification {
      */
     def "GetStocks returns the available stocks"() {
         setup:
-        Stock stock1 = new Stock()
-        Stock stock2 = new Stock()
-        Stock stock3 = new Stock()
-        Stock stock4 = new Stock()
+        Stock stock1 = new Stock(corp)
+        Stock stock2 = new Stock(corp)
+        Stock stock3 = new Stock(corp)
+        Stock stock4 = new Stock(corp)
 
         Stock[] stocks = [stock1, stock2, stock3, stock4]
 
@@ -105,28 +104,21 @@ class BoardSpec extends Specification {
         returnedStocks == stocks
     }
 
-    /**
-     * Makes sure that Board stores corporations and not another data type.
-     * Kinda redundant, but I already wrote it.
-     */
-    def "Get corporations returns correct type"() {
-        expect:
-        board.getCorporations().is(Corporation[])
-    }
+
 
     /**
      * makes sure that getCorporations returns the list of corporations held by the board.
      */
     def "Get corporations returns the corporations"(){
         setup:
-        Corporation corp1 = new Corporation()
-        Corporation corp2 = new Corporation()
-        Corporation corp3 = new Corporation()
-        Corporation corp4 = new Corporation()
-        Corporation corp5 = new Corporation()
-        Corporation corp6 = new Corporation()
-        Corporation corp7 = new Corporation()
-        Corporation corp8 = new Corporation()
+        Corporation corp1 = new Corporation("1")
+        Corporation corp2 = new Corporation("2")
+        Corporation corp3 = new Corporation("3")
+        Corporation corp4 = new Corporation("4")
+        Corporation corp5 = new Corporation("5")
+        Corporation corp6 = new Corporation("6")
+        Corporation corp7 = new Corporation("7")
+        Corporation corp8 = new Corporation("8")
         Corporation[] list = [corp1, corp2, corp3, corp4, corp5, corp6, corp7, corp8]
         board = new Board(null, null, list, null, null, null)
 
@@ -134,26 +126,19 @@ class BoardSpec extends Specification {
         Corporation[] corps = board.getCorporations()
 
         then: "returns the correct list of corporations"
-        corps == list
+        corps.is(list)
     }
 
-    /**
-     * makes sure that a Player array is returned.
-     */
-    def "Get players returns right type"() {
-        expect:
-        board.getPlayers().is(Player[])
-    }
 
     /**
      * Makes sure that getPlayers returns the players held by the board.
      */
     def "get players returns the right players"(){
         setup:
-        Player player1 = new Player()
-        Player player2 = new Player()
-        Player player3 = new Player()
-        Player player4 = new Player()
+        Player player1 = new Player("a")
+        Player player2 = new Player("b")
+        Player player3 = new Player("c")
+        Player player4 = new Player("d")
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
@@ -166,23 +151,16 @@ class BoardSpec extends Specification {
         returned == players
     }
 
-    /**
-     * Makes sure that getTilesPlaced returns a Tile array.
-     */
-    def "returns the right type for tiles on board"() {
-        expect:
-        board.getTilesPlaced().is(Tile[])
-    }
 
     /**
      * Makes sure that getTiles returns the Tile objects that the board has placed on it.
      */
     def "returns the tiles that are on the board"(){
         setup:
-        Tile tile1 = new Tile()
-        Tile tile2 = new Tile()
-        Tile tile3 = new Tile()
-        Tile tile4 = new Tile()
+        Tile tile1 = new Tile(1)
+        Tile tile2 = new Tile(2)
+        Tile tile3 = new Tile(3)
+        Tile tile4 = new Tile(4)
 
         ArrayList<Tile> tiles = new ArrayList<Tile>(Arrays.asList(tile1, tile2, tile3, tile4))
 
@@ -201,10 +179,10 @@ class BoardSpec extends Specification {
      */
     def "GetCurrentTurn returns correct turn"() {
         setup:
-        Player player1 = new Player()
-        Player player2 = new Player()
-        Player player3 = new Player()
-        Player player4 = new Player()
+        Player player1 = new Player("a")
+        Player player2 = new Player("b")
+        Player player3 = new Player("c")
+        Player player4 = new Player("d")
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
@@ -222,15 +200,16 @@ class BoardSpec extends Specification {
      */
     def "Set current turn actually sets the turn"() {
         setup:
-        Player player = new Player()
-        Player player2 = new Player()
-        Board tempBoard = new Board(null, null, null, null, null, player2)
+        Player player = new Player("a")
+        Player player2 = new Player("b")
+        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player, player2))
+        Board tempBoard = new Board(null, null, null, players, null, player2)
 
         when: "set current turn to player"
         tempBoard.setCurrentTurn(player)
 
         then: "Current turn is set to player"
-        tempBoard.getCurrentTurn() == player
+        tempBoard.getCurrentTurn().is(player)
     }
 
     /**
@@ -238,11 +217,11 @@ class BoardSpec extends Specification {
      */
     def "only valid players can get the turn set to them"(){
         setup:
-        Player player1 = new Player()
-        Player player2 = new Player()
-        Player player3 = new Player()
-        Player player4 = new Player()
-        Player player5 = new Player()
+        Player player1 = new Player("a")
+        Player player2 = new Player("b")
+        Player player3 = new Player("c")
+        Player player4 = new Player("d")
+        Player player5 = new Player("e")
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 

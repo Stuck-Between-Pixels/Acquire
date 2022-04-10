@@ -18,13 +18,8 @@ plugins {
 }
 
 // Stuff for javafx
-group 'ui'
+group 'Acquire'
 version '1.0-SNAPSHOT'
-
-javafx {
-    version = '17.0.2'
-    modules = ['javafx.controls','javafx.fxml']
-}
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -32,20 +27,28 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.20'
+    implementation ('org.projectlombok:lombok:1.18.22'){
+        exclude group: 'lombok.extern.slf4j', module: 'lombok.extern.slf4j'
+    }
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
-    implementation 'org.slf4j:slf4j-api:2.0.0-alpha7'
+    //implementation 'org.slf4j:slf4j-api:1.7.13'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.jetbrains:annotations:20.1.0'
     implementation 'org.controlsfx:controlsfx:11.1.0'
 
-    testImplementation 'org.spockframework:spock-core:2.2-M1-groovy-3.0'
-    testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
-
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
     implementation 'com.jfoenix:jfoenix:9.0.10'
 
+    implementation 'org.slf4j:slf4j-simple:2.0.0-alpha7'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.10'
+    implementation 'org.spockframework:spock-core:2.1-groovy-3.0'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 application {
@@ -114,3 +117,4 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
