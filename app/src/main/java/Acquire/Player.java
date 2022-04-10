@@ -28,10 +28,7 @@ import lombok.Setter;
 import lombok.NonNull;
 
 import java.nio.BufferOverflowException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * The player class for the game. This class holds data relevant to the player and provides ways to modify said data
@@ -154,6 +151,22 @@ public class Player {
      */
     public int getNumStock() {
         return stocks.size();
+    }
+
+    /**
+     * Retries the number of stocks the player has from a specific corporation by the passed corporation's name
+     * @param corp to search for
+     * @return number of stocks
+     */
+    public int getNumStockFromCorp(Corporation corp) {
+        Iterator<Stock> iter = stocks.iterator();
+        int amount = 0;
+        while (iter.hasNext()) {
+            if (Objects.equals(iter.next().getCorp().getName(), corp.getName())) {
+                amount++;
+            }
+        }
+        return amount;
     }
 
     /**
