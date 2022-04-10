@@ -33,7 +33,7 @@ public class StartMenuController {
     }
 
     @FXML
-    void buyStockButtonClicked(ActionEvent event) throws IOException {
+    void buyStockButtonClicked() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("buystock.fxml"));
         Parent parent = fxmlLoader.load();
 
@@ -44,8 +44,7 @@ public class StartMenuController {
         stage.showAndWait();
     }
 
-=======
->>>>>>> cedf7be5eb51eaa1c6a844486b3795fb9b10db42
+
     public void ExitButton(MouseEvent mouseEvent) {
         Node node = (Node) mouseEvent.getSource();
         Window exitStage = node.getScene().getWindow();
