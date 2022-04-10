@@ -2,20 +2,18 @@ package Acquire;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 
 public class Board {
     private final TilePileIterator tiles;
     @Getter @Setter private Stock[] stocks;
     @Getter private final Corporation[] corporations;
-    @Getter private final Player[] players;
+    @Getter private final ArrayList<Player> players;
     @Getter @Setter private Tile[] tilesPlaced;
-    @Getter @Setter private Player currentTurn;
+    @Getter private Player currentTurn;
 
-    private static Logger logger = LoggerFactory.getLogger(Board.class);
-
-    public Board(TilePileIterator tiles, Stock[] stocks, Corporation[] corporations, Player[] players, Tile[] tilesPlaced, Player currentTurn) {
+    public Board(TilePileIterator tiles, Stock[] stocks, Corporation[] corporations, ArrayList<Player> players, Tile[] tilesPlaced, Player currentTurn) {
         this.tiles = tiles;
         this.stocks = stocks;
         this.corporations = corporations;
@@ -36,6 +34,11 @@ public class Board {
         return new Board(this.tiles, this.stocks, this.corporations, this.players, this.tilesPlaced, this.currentTurn);
     }
 
-
-
+    public void setCurrentTurn(Player currentTurn) throws PlayerDoesntExistException {
+        if(players.contains(currentTurn)) {
+            this.currentTurn = currentTurn;
+        }else{
+            throw new PlayerDoesntExistException("Player doesn't exist.");
+        }
+    }
 }
