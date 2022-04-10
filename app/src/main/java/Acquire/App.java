@@ -43,7 +43,7 @@ public class App extends Application {
 
 
     private Acquire currentGame;
-    private MainGame gameScreen;
+    //private MainGame gameScreen;
     private SaveScreen saveScreen;
     private LoadScreen loadScreen;
     private StartMenuClass startMenuClass;
@@ -51,20 +51,7 @@ public class App extends Application {
     private BuyStock buyStockScreen;
     private Stage stage = new Stage();
 
-    /**
-     * UI controller constructor
-     *
-     * @param currentGame  The current game to be displayed and updated
-     *//*
-    public App(Acquire currentGame) {
-        this.currentGame = currentGame;
-        gameScreen = new MainGame();
-        saveScreen = new SaveScreen(stage);
-        loadScreen = new LoadScreen(stage);
-        sellStockScreen = new SellStock();
-        buyStockScreen = new BuyStock();
-    }
-*/
+
     /**
      * The start method for the application. Displays the starting menu and all buttons associated with it
      *
@@ -75,7 +62,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
 
         Scene scene = new Scene(loader.load());
-        stage.isResizable();
+        stage.setResizable(true);
         stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("Acquire");
         stage.setScene(scene);
