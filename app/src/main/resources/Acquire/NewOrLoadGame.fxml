@@ -40,12 +40,12 @@
             </Text>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="62.0" prefWidth="368.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
-                  <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="180.0" text="Load Game">
+                  <JFXButton onMouseClicked="#LoadGame" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="180.0" text="Load Game">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="170.0" text="New Game">
+                  <JFXButton onMouseClicked="#StartGame" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="170.0" text="New Game">
                      <font>
                         <Font size="21.0" />
                      </font>
