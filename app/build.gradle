@@ -18,7 +18,7 @@ plugins {
 }
 
 // Stuff for javafx
-//group 'ui'
+group 'ui'
 version '1.0-SNAPSHOT'
 
 javafx {
@@ -45,19 +45,20 @@ dependencies {
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
 
     implementation 'com.jfoenix:jfoenix:9.0.10'
+
 }
 
 application {
     // Define the main module for the application.
     mainModule = 'Acquire'
     // Define the main class for the application.
-    mainClass = 'Acquire.App'
+    mainClass = 'Acquire.UIController'
 }
 
-//javafx {
-//    version = "17.0.2"
-//    modules = [ 'javafx.controls', 'javafx.fxml' ]
-//}
+javafx {
+    version = "17.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
 
 license {
     header = project.file('LICENSE')
