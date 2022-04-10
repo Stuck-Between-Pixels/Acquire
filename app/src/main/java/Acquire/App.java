@@ -43,7 +43,7 @@ public class App extends Application {
 
 
     private Acquire currentGame;
-    private MainGame gameScreen;
+    //private MainGame gameScreen;
     private SaveScreen saveScreen;
     private LoadScreen loadScreen;
     private StartMenuClass startMenuClass;

@@ -39,7 +39,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:2.0.0-alpha7'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.jetbrains:annotations:20.1.0'
-    implementation('org.controlsfx:controlsfx:11.1.0')
+    implementation 'org.controlsfx:controlsfx:11.1.0'
 
     testImplementation 'org.spockframework:spock-core:2.2-M1-groovy-3.0'
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
@@ -52,7 +52,7 @@ application {
     // Define the main module for the application.
     mainModule = 'Acquire'
     // Define the main class for the application.
-    mainClass = 'Acquire.UIController'
+    mainClass = 'Acquire.App'
 }
 
 javafx {
