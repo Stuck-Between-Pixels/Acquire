@@ -33,6 +33,7 @@
 -->
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleNode?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -71,52 +72,136 @@
                 <RowConstraints maxHeight="685.6000091552735" minHeight="10.0" prefHeight="643.2" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="120.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="890.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="124.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="900.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
                      <GridPane.margin>
                         <Insets right="75.0" top="5.0" />
                      </GridPane.margin>
                   </Rectangle>
                   <HBox maxHeight="110.0" maxWidth="1070.0" prefHeight="94.0" prefWidth="1070.0" spacing="10.0">
                      <children>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/Continental_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/Sackson_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/Imperial_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/Festival_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/Tower_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/American_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/StockPlaceholders/Worldwide_Stock_Placeholder.png" />
-                           </image>
-                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/Continental_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="ContinentalStockAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/Sackson_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="SacksonStockAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/Imperial_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="ImperialStockAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/Festival_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/Tower_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="TowerStockAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/American_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="AmericanStockAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="133.0" fitWidth="115.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/StockPlaceholders/Worldwide_Stock_Placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="WorldwideStockAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Stock Available: ">
+                                 <font>
+                                    <Font name="Cambria" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                           </children>
+                        </VBox>
                      </children>
-                     <padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
                         <Insets left="200.0" top="20.0" />
-                     </padding>
+                     </GridPane.margin>
                   </HBox>
                   <GridPane GridPane.rowIndex="1">
                     <columnConstraints>
@@ -257,64 +342,84 @@
                         </Rectangle>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                            <children>
-                              <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/BuildingPlaceholders/Continental_Building.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/BuildingPlaceholders/Imperial_Building.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/BuildingPlaceholders/Tower_Building.png" />
-                                 </image>
-                              </ImageView>
+                              <JFXToggleNode fx:id="ContinentalBuildingToggle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0">
+                                 <graphic>
+                                    <ImageView fitWidth="70.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/BuildingPlaceholders/Continental_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode fx:id="ImperialBuildingToggle" layoutX="40.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0">
+                                 <graphic>
+                                    <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/BuildingPlaceholders/Imperial_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode fx:id="TowerBuildingToggle" layoutX="40.0" layoutY="185.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0">
+                                 <graphic>
+                                    <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/BuildingPlaceholders/Tower_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
                            </children>
                            <padding>
                               <Insets left="30.0" top="25.0" />
                            </padding>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                        <VBox fx:id="SacksonBuildingToggle" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
                            <children>
-                              <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/BuildingPlaceholders/Sackson_Building.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/BuildingPlaceholders/Festival_Building.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/BuildingPlaceholders/American_Building.png" />
-                                 </image>
-                              </ImageView>
+                              <JFXToggleNode maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0">
+                                 <graphic>
+                                    <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/BuildingPlaceholders/Sackson_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode fx:id="FestivalBuildingToggle" layoutX="130.0" layoutY="486.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0">
+                                 <graphic>
+                                    <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/BuildingPlaceholders/Festival_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode fx:id="AmericanBuildingToggle" layoutX="130.0" layoutY="636.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0">
+                                 <graphic>
+                                    <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/BuildingPlaceholders/American_Building.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
                            </children>
                            <padding>
                               <Insets left="120.0" top="25.0" />
                            </padding>
                         </VBox>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" nodeOrientation="INHERIT" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-                           <image>
-                              <Image url="@../images/BuildingPlaceholders/Worldwide_Building.png" />
-                           </image>
+                        <JFXToggleNode fx:id="WorldwideBuildingToggle"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                           <graphic>
+                              <ImageView fitHeight="200.0" fitWidth="70.0" nodeOrientation="INHERIT" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Worldwide_Building.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                            <GridPane.margin>
-                              <Insets top="445.0" />
+                              <Insets bottom="30.0" left="15.0" />
                            </GridPane.margin>
-                        </ImageView>
-                        <VBox maxHeight="700.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="184.0" spacing="10.0">
-                           <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" />
-                           </children>
-                           <GridPane.margin>
-                              <Insets left="20.0" top="10.0" />
-                           </GridPane.margin>
-                        </VBox>
+                        </JFXToggleNode>
                         <ImageView fitHeight="516.0" fitWidth="669.0" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
                            <image>
                               <Image url="@../images/gameboard.png" />
@@ -323,62 +428,68 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </ImageView>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="80.0" layoutX="28.0" layoutY="24.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="395.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="80.0" layoutX="28.0" layoutY="24.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="400.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                            <GridPane.margin>
                               <Insets bottom="20.0" left="110.0" />
                            </GridPane.margin>
                         </Rectangle>
-                        <HBox maxHeight="95.0" maxWidth="550.0" prefHeight="95.0" prefWidth="422.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
+                        <HBox maxHeight="80.0" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="400.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="SOMETIMES" GridPane.valignment="BOTTOM" GridPane.vgrow="SOMETIMES">
                            <children>
-                              <ImageView fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="58.0" fitWidth="60.0" layoutX="20.0" layoutY="30.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="58.0" fitWidth="60.0" layoutX="84.0" layoutY="30.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="58.0" fitWidth="60.0" layoutX="147.0" layoutY="30.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="58.0" fitWidth="60.0" layoutX="210.0" layoutY="30.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="58.0" fitWidth="60.0" layoutX="273.0" layoutY="30.0" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="71.0" maxWidth="67.0" minHeight="71.0" minWidth="50.0" prefHeight="71.0" prefWidth="67.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" HBox.hgrow="SOMETIMES">
+                              <JFXToggleNode maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="60.0">
+                                 <graphic>
+                                    <ImageView fx:id="TileOne" fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Tiles/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode layoutX="70.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="60.0">
+                                 <graphic>
+                                    <ImageView fx:id="TileTwo" fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Tiles/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="60.0">
+                                 <graphic>
+                                    <ImageView fx:id="TileThree" fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Tiles/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode layoutX="208.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="60.0">
+                                 <graphic>
+                                    <ImageView fx:id="TileFour" fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Tiles/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode layoutX="208.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="60.0">
+                                 <graphic>
+                                    <ImageView fx:id="TileFive" fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Tiles/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXToggleNode layoutX="250.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="60.0">
+                                 <graphic>
+                                    <ImageView fx:id="TileSix" fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Tiles/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXToggleNode>
+                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="71.0" maxWidth="67.0" minHeight="58.0" minWidth="50.0" prefHeight="58.0" prefWidth="67.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" HBox.hgrow="SOMETIMES">
                                  <graphic>
                                     <ImageView fitHeight="58.0" fitWidth="60.0" preserveRatio="true">
                                        <image>
@@ -387,7 +498,7 @@
                                     </ImageView>
                                  </graphic>
                                  <HBox.margin>
-                                    <Insets left="10.0" top="15.0" />
+                                    <Insets bottom="20.0" left="10.0" />
                                  </HBox.margin>
                                  <font>
                                     <Font name="Cambria" size="18.0" />
@@ -395,7 +506,7 @@
                               </JFXButton>
                            </children>
                            <GridPane.margin>
-                              <Insets bottom="15.0" />
+                              <Insets bottom="10.0" left="120.0" />
                            </GridPane.margin>
                         </HBox>
                      </children>
