@@ -54,7 +54,7 @@ public class TilePileIterator implements Iterator<Tile> {
 
     /** {@inheritDoc} */
     @Override
-    public Tile next() {
+    public Tile next() throws NoSuchElementException{
         if (tiles.isEmpty()) {
             throw new NoSuchElementException();
         }
@@ -64,7 +64,7 @@ public class TilePileIterator implements Iterator<Tile> {
 
     /** {@inheritDoc} */
     @Override
-    public void remove() {
+    public void remove() throws IllegalStateException{
         if (current == null) throw new IllegalStateException();
         tilePile.remove(current);
     }
