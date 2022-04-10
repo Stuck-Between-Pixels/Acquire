@@ -29,7 +29,7 @@ public class StartMenuController {
 
     @FXML
     public void StartGame() throws IOException {
-        StartMenuController.NewGame();
+        NewOrLoadGameController.NewGame();
     }
 
     @FXML
@@ -50,68 +50,4 @@ public class StartMenuController {
         Window exitStage = node.getScene().getWindow();
         exitStage.hide();
     }
-
-
-
-    // ----------- Acquire.fxml control -----------
-    @FXML
-    public JFXButton ContinentalStockButton;
-
-    @FXML
-    public JFXButton SacksonStockButton;
-
-    @FXML
-    public JFXButton ImperialStockButton;
-
-    @FXML
-    public JFXButton FestivalStockButton;
-
-    @FXML
-    public JFXButton TowerStockButton;
-
-    @FXML
-    public JFXButton AmericanStockButton;
-
-    @FXML
-    public JFXButton WordlwideStockButton;
-
-    @FXML
-    public JFXButton ContinentalBuilding;
-
-    @FXML
-    public JFXButton SacksonBuilding;
-
-    @FXML
-    public JFXButton ImperialBuilding;
-
-    @FXML
-    public JFXButton FestivalBuilding;
-
-    @FXML
-    public JFXButton TowerBuilding;
-
-    @FXML
-    public JFXButton AmericanBuilding;
-
-    @FXML
-    public JFXButton WorldwideBuilding;
-
-    @FXML
-    public synchronized void ContinentalStockDrag(DragEvent event) {
-
-    }
-
-
-    // ---------- NewOrLoadGame.fxml control ----------
-    public static void NewGame() throws IOException {
-        Acquire.Start(new Stage());
-    }
-
-
-    public void LoadGame(MouseEvent mouseEvent) {
-
-    }
-
-
-
 }
