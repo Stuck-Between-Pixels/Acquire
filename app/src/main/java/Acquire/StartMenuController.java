@@ -1,5 +1,10 @@
 package Acquire;
 
+
+import javafx.scene.*;
+import javafx.stage.*;
+
+import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +33,19 @@ public class StartMenuController {
     }
 
     @FXML
+    void buyStockButtonClicked(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("buystock.fxml"));
+        Parent parent = fxmlLoader.load();
+
+        Scene scene = new Scene(parent, 500, 375);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
+=======
+>>>>>>> cedf7be5eb51eaa1c6a844486b3795fb9b10db42
     public void ExitButton(MouseEvent mouseEvent) {
         Node node = (Node) mouseEvent.getSource();
         Window exitStage = node.getScene().getWindow();

@@ -72,8 +72,6 @@ public class App extends Application {
         StartMenuClass.Start(new Stage());
     }
 
-
-
     /**
      * A method to update the scene currently on the stage. For example, when the user presses the start button from the
      * menu, update is called to change the scene to the main game scene.
