@@ -54,6 +54,8 @@ jacoco {
 }
 
 test {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
     finalizedBy jacocoTestReport
     useJUnitPlatform()
 }

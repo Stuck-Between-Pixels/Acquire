@@ -27,6 +27,4 @@
 package Acquire;
 
 public class App {
-
-
 }
