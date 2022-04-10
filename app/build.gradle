@@ -12,7 +12,7 @@ plugins {
     id "io.freefair.lombok" version "6.4.1"
     id 'jacoco'
     id "com.github.hierynomus.license-base" version "0.16.1"
-    id "org.openjfx.javafxplugin" version "0.0.10"
+    id "org.openjfx.javafxplugin" version "0.0.12"
     id 'org.beryx.jlink' version '2.24.1'
     id 'groovy'
 }
@@ -43,6 +43,9 @@ dependencies {
 
     testImplementation 'org.spockframework:spock-core:2.2-M1-groovy-3.0'
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
+
+    implementation 'com.jfoenix:jfoenix:9.0.10'
+
 }
 
 application {

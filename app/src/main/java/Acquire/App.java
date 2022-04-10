@@ -25,10 +25,14 @@ package Acquire;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+import javafx.stage.StageStyle;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * A controller class to start and update the user interface
@@ -42,7 +46,7 @@ public class App extends Application {
     private MainGame gameScreen;
     private SaveScreen saveScreen;
     private LoadScreen loadScreen;
-    private StartMenu startMenu;
+    private StartMenuClass startMenuClass;
     private SellStock sellStockScreen;
     private BuyStock buyStockScreen;
     private Stage stage = new Stage();
@@ -68,13 +72,17 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("StartMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 320, 240);
-        //this.stage = stage;
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
+
+        Scene scene = new Scene(loader.load());
+        stage.isResizable();
+        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("Acquire");
         stage.setScene(scene);
         stage.show();
     }
+
+
 
     /**
      * A method to update the scene currently on the stage. For example, when the user presses the start button from the
