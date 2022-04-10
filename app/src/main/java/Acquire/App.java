@@ -75,7 +75,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
 
         Scene scene = new Scene(loader.load());
-        stage.isResizable();
+        stage.setResizable(true);
         stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("Acquire");
         stage.setScene(scene);
