@@ -69,8 +69,6 @@ public class App extends Application {
         stage.show();
     }
 
-
-
     /**
      * A method to update the scene currently on the stage. For example, when the user presses the start button from the
      * menu, update is called to change the scene to the main game scene.
