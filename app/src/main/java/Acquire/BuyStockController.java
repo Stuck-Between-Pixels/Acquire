@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.stage.*;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BuyStockController implements Initializable {
@@ -42,6 +43,12 @@ public class BuyStockController implements Initializable {
     @FXML
     private Label worldwideShares;
     @FXML
+    private Label moneyAvailable;
+    @FXML
+    private Label costOfShares;
+    @FXML
+    private Label moneyAfter;
+    @FXML
     private Spinner<Integer> continentalSpinner;
     @FXML
     private Spinner<Integer> sacksonSpinner;
@@ -55,12 +62,11 @@ public class BuyStockController implements Initializable {
     private Spinner<Integer> americanSpinner;
     @FXML
     private Spinner<Integer> worldwideSpinner;
-    @FXML
-    private Label moneyAvailable;
-    @FXML
-    private Label costOfShares;
-    @FXML
-    private Label moneyAfter;
+
+    private ArrayList<Spinner<Integer>> spinners = new ArrayList<>();
+    private int totalShareCost;
+    private int playerMoney; // playerMoney = Acquire.getTurn().getPlayer.getMoney() or something like that
+    private int sharesToBuy = 0;
 
     @FXML
     void okButtonClicked() {
@@ -75,6 +81,48 @@ public class BuyStockController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        spinners.add(continentalSpinner);
+        spinners.add(sacksonSpinner);
+        spinners.add(festivalSpinner);
+        spinners.add(imperialSpinner);
+        spinners.add(towerSpinner);
+        spinners.add(americanSpinner);
+        spinners.add(worldwideSpinner);
 
+        for (Spinner<Integer> spinner : spinners) {
+            spinner.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if (oldValue < newValue) {
+                    sharesToBuy += 1;
+                    if (sharesToBuy >= 3) {
+                        for (Spinner<Integer> spinner1 : spinners) {
+                            if (spinner1.getValue() == 0) {
+                                spinner1.setDisable(true);
+                            }
+                        }
+                    }
+                } else {
+                    sharesToBuy -= 1;
+                    for (Spinner<Integer> spinner1 : spinners) {
+                        spinner1.setDisable(false);
+                    }
+                }
+                costOfShares.setText(computeTotalSharesCost());
+            });
+        }
+
+        continentalCost.setText("Stock Cost: $500");
+        continentalShares.setText("Shares Left: 25");
+        moneyAvailable.setText("$6000");
+        costOfShares.setText(computeTotalSharesCost());
+        moneyAfter.setText("" + (playerMoney - totalShareCost));
+    }
+
+
+    public String computeTotalSharesCost() {
+        totalShareCost = 0;
+        String returnString = "";
+        totalShareCost += continentalSpinner.getValue() + sacksonSpinner.getValue() + festivalSpinner.getValue() + imperialSpinner.getValue();
+        totalShareCost += towerSpinner.getValue() + americanSpinner.getValue() + worldwideSpinner.getValue();
+        return returnString + totalShareCost;
     }
 }
