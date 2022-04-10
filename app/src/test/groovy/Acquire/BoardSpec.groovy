@@ -1,7 +1,10 @@
-
-
-import lombok.Getter
-import lombok.Setter
+import Acquire.Board
+import Acquire.Corporation
+import Acquire.Player
+import Acquire.PlayerDoesntExistException
+import Acquire.Stock
+import Acquire.Tile
+import Acquire.TilePileIterator
 import spock.lang.Specification
 
 /**
@@ -13,23 +16,13 @@ import spock.lang.Specification
 
 class BoardTest extends Specification {
 
-    private Board board
+    private Board board = new Board(null, null, null, null, null, null)
 
     /**
      * Setup for BoardTest. Creates a Board object along with all of its dependencies. Destructs after all methods
      * in BoardTest have been run.
      */
-    void setup() {
 
-        Stock[] stocks = [new Stock(), new Stock(), new Stock()]
-        TilePileIterator tiles = new TilePileIterator(stocks)
-        final Corporation[] corporations = [new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation()]
-        final Player[] players = [new Player(), new Player(), new Player(), new Player()]
-        final Tile[] tilesPlaced = [new Tile(), new Tile()]
-        Player currentTurn = players[0]
-
-        board = new Board(tiles, stocks, corporations, players, tilesPlaced, currentTurn)
-    }
 
     def "test works"(){
         expect:
@@ -61,9 +54,10 @@ class BoardTest extends Specification {
         setup:
 
         Stock[] stocks = [new Stock(), new Stock(), new Stock()]
-        TilePileIterator tiles = new TilePileIterator(stocks)
+        Tile[] tileList = [new Tile(), new Tile(), new Tile()]
+        TilePileIterator tiles = new TilePileIterator(tileList)
         final Corporation[] corporations = [new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation()]
-        final Player[] players = [new Player(), new Player(), new Player(), new Player()]
+        final ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(), new Player(), new Player(), new Player()))
         final Tile[] tilesPlaced = [new Tile(), new Tile()]
         Player currentTurn = players[0]
 
@@ -131,7 +125,7 @@ class BoardTest extends Specification {
      * Kinda redundant, but I already wrote it.
      */
     def "Get corporations returns correct type"() {
-        then:
+        expect:
         board.getCorporations().is(Corporation[])
     }
 
@@ -162,7 +156,7 @@ class BoardTest extends Specification {
      * makes sure that a Player array is returned.
      */
     def "Get players returns right type"() {
-        then:
+        expect:
         board.getPlayers().is(Player[])
     }
 
@@ -176,12 +170,12 @@ class BoardTest extends Specification {
         Player player3 = new Player()
         Player player4 = new Player()
 
-        Player[] players = [player1, player2, player3, player4]
+        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
         Board board = new Board(null, null, null, players, null, null)
 
         when: "Get the players"
-        Player[] returned = board.getPlayers()
+        ArrayList<Player> returned = board.getPlayers()
 
         then: "players returned should be the same as players set"
         returned == players
@@ -191,7 +185,7 @@ class BoardTest extends Specification {
      * Makes sure that getTilesPlaced returns a Tile array.
      */
     def "returns the right type for tiles on board"() {
-        then:
+        expect:
         board.getTilesPlaced().is(Tile[])
     }
 
@@ -227,7 +221,7 @@ class BoardTest extends Specification {
         Player player3 = new Player()
         Player player4 = new Player()
 
-        Player[] players = [player1, player2, player3, player4]
+        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
         Board board = new Board(null, null, null, players, null, player1)
 
@@ -265,7 +259,7 @@ class BoardTest extends Specification {
         Player player4 = new Player()
         Player player5 = new Player()
 
-        Player[] players = [player1, player2, player3, player4]
+        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
         Board board = new Board(null, null, null, players, null, player1)
 
@@ -273,7 +267,7 @@ class BoardTest extends Specification {
         board.setCurrentTurn(player5)
 
         then: "check that exception is thrown"
-        thrown playerDoesntExistException
+        thrown PlayerDoesntExistException
     }
 
 

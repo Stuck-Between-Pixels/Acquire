@@ -12,8 +12,19 @@ plugins {
     id "io.freefair.lombok" version "6.4.1"
     id 'jacoco'
     id "com.github.hierynomus.license-base" version "0.16.1"
-    id "org.openjfx.javafxplugin" version "0.0.12"
+    //id "org.openjfx.javafxplugin" version "0.0.12"
+    //id 'org.beryx.jlink' version '2.24.1'
+    id 'groovy'
 }
+
+// Stuff for javafx
+//group 'ui'
+version '1.0-SNAPSHOT'
+
+//javafx {
+//    version = '17.0.2'
+//    modules = ['javafx.controls','javafx.fxml']
+//}
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -21,28 +32,30 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    implementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+    implementation 'org.projectlombok:lombok:1.18.20'
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
     implementation 'org.slf4j:slf4j-api:2.0.0-alpha7'
     implementation 'com.google.code.gson:gson:2.9.0'
-    implementation 'org.codehaus.groovy:groovy:3.0.10'
-    testImplementation platform("org.spockframework:spock-bom:2.1-groovy-3.0")
-    testImplementation "org.spockframework:spock-core"
-    testImplementation "org.spockframework:spock-junit4"
+    implementation 'org.jetbrains:annotations:20.1.0'
+    //implementation('org.controlsfx:controlsfx:11.1.0')
+
+    testImplementation 'org.spockframework:spock-core:2.2-M1-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.8'
 }
 
 application {
+    // Define the main module for the application.
+    mainModule = 'Acquire'
     // Define the main class for the application.
     mainClass = 'Acquire.App'
 }
 
-javafx {
-    version = "17.0.2"
-    modules = [ 'javafx.controls' ]
-}
+//javafx {
+//    version = "17.0.2"
+//    modules = [ 'javafx.controls', 'javafx.fxml' ]
+//}
 
 license {
     header = project.file('LICENSE')
@@ -50,14 +63,13 @@ license {
 
 jacoco {
     toolVersion = "0.8.7"
-    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir') as Directory
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
 }
 
 test {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
     finalizedBy jacocoTestReport
-    useJUnitPlatform()
 }
 
 jacocoTestReport {
@@ -81,8 +93,21 @@ jacocoTestCoverageVerification {
     }
 }
 
+
 javadoc {
-    //source = sourceSets.main.allJava
+    source = sourceSets.main.allJava
     classpath = configurations.runtimeClasspath
     destinationDir = file("${rootDir}/docs/javadoc")
 }
+
+//jlink {
+//    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+//    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+//    launcher {
+//        name = 'app'
+//    }
+//}
+//
+//jlinkZip {
+//    group = 'distribution'
+//}
