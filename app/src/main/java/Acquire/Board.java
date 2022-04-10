@@ -10,10 +10,10 @@ public class Board {
     @Getter @Setter private Stock[] stocks;
     @Getter private final Corporation[] corporations;
     @Getter private final ArrayList<Player> players;
-    @Getter @Setter private Tile[] tilesPlaced;
+    @Getter @Setter private ArrayList<Tile> tilesPlaced;
     @Getter private Player currentTurn;
 
-    public Board(TilePileIterator tiles, Stock[] stocks, Corporation[] corporations, ArrayList<Player> players, Tile[] tilesPlaced, Player currentTurn) {
+    public Board(TilePileIterator tiles, Stock[] stocks, Corporation[] corporations, ArrayList<Player> players, ArrayList<Tile> tilesPlaced, Player currentTurn) {
         this.tiles = tiles;
         this.stocks = stocks;
         this.corporations = corporations;

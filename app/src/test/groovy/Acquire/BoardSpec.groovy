@@ -1,10 +1,5 @@
-import Acquire.Board
-import Acquire.Corporation
-import Acquire.Player
-import Acquire.PlayerDoesntExistException
-import Acquire.Stock
-import Acquire.Tile
-import Acquire.TilePileIterator
+package Acquire
+
 import spock.lang.Specification
 
 /**
@@ -14,20 +9,10 @@ import spock.lang.Specification
  *
  */
 
-class BoardTest extends Specification {
+class BoardSpec extends Specification {
 
     private Board board = new Board(null, null, null, null, null, null)
 
-    /**
-     * Setup for BoardTest. Creates a Board object along with all of its dependencies. Destructs after all methods
-     * in BoardTest have been run.
-     */
-
-
-    def "test works"(){
-        expect:
-        1 == 0
-    }
 
     /**
      * Tests that when a tile is placed whether or not it appears in the array of placed tiles in the board.
@@ -58,7 +43,7 @@ class BoardTest extends Specification {
         TilePileIterator tiles = new TilePileIterator(tileList)
         final Corporation[] corporations = [new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation(), new Corporation()]
         final ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(), new Player(), new Player(), new Player()))
-        final Tile[] tilesPlaced = [new Tile(), new Tile()]
+        final ArrayList<Tile> tilesPlaced = new ArrayList<Tile>(Arrays.asList(new Tile(), new Tile()))
         Player currentTurn = players[0]
 
         board = new Board(tiles, stocks, corporations, players, tilesPlaced, currentTurn)
@@ -199,12 +184,12 @@ class BoardTest extends Specification {
         Tile tile3 = new Tile()
         Tile tile4 = new Tile()
 
-        Tile[] tiles = [tile1, tile2, tile3, tile4]
+        ArrayList<Tile> tiles = new ArrayList<Tile>(Arrays.asList(tile1, tile2, tile3, tile4))
 
         Board board = new Board(null, null, null, null, tiles, null)
 
         when: "get tiles that have been placed"
-        Tile[] returnedTiles = board.getTilesPlaced()
+        ArrayList<Tile> returnedTiles = board.getTilesPlaced()
 
         then: "returns the correct tiles"
         returnedTiles == tiles
