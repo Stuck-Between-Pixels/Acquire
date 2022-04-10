@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.StartMenuController">
+    <ImageView id="bg-image" fitWidth="1366.0" preserveRatio="true">
+        <image>
+            <Image url="@../images/menu.png" />
+        </image>
+      <viewport>
+         <Rectangle2D minX="1366.0" />
+      </viewport>
+    </ImageView>
+    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0">
+      <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="776.0" minWidth="10.0" prefWidth="360.800048828125" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1336.0000061035157" minWidth="10.0" prefWidth="689.1999511718749" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.800048828125" minWidth="10.0" prefWidth="346.800048828125" />
+      </columnConstraints>
+      <rowConstraints>
+          <RowConstraints maxHeight="491.6000122070312" minHeight="10.0" prefHeight="298.1999755859375" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="350.7999633789062" minHeight="10.0" prefHeight="90.79996337890623" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="589.6000244140625" minHeight="10.0" prefHeight="380.4000366210937" vgrow="SOMETIMES" />
+      </rowConstraints>
+        <children>
+            <Button fx:id="StartGame" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#NewOrLoadGame" prefHeight="70.0" prefWidth="270.0" style="-fx-background-color: #f3f9f9; -fx-border-color: #9ea7a7;" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <font>
+                    <Font name="Cambria" size="35.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+                <GridPane.margin>
+                    <Insets left="200.0" />
+                </GridPane.margin>
+            </Button>
+            <Button fx:id="CloseWindow" mnemonicParsing="false" onMouseClicked="#ExitButton" prefHeight="70.0" prefWidth="270.0" style="-fx-background-color: #f3f9f9; -fx-border-color: #9ea7a7;" text="Exit" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <font>
+                    <Font name="Cambria" size="35.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+                <GridPane.margin>
+                    <Insets bottom="290.0" left="200.0" />
+                </GridPane.margin>
+            </Button>
+        </children>
+    </GridPane>
+</StackPane>

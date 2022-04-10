@@ -23,37 +23,28 @@
  */
 package Acquire;
 
-import javafx.stage.*;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Window;
 
-import java.io.*;
+public class StartMenuController {
 
-/**
- * A user interface class that opens a file explorer for the user to choose a file to load game from
- *
- * @author Zackary Beck
- */
-public class LoadScreen {
-    private Stage stage;
+    @FXML
+    public Button StartGame;
 
-    /**
-     * A constructor for the loading screen interface
-     *
-     * @param stage  The main application's stage to which the file chooser will be displayed
-     */
-    public LoadScreen(Stage stage) {
-        this.stage = stage;
+    @FXML
+    public void NewOrLoadGame(MouseEvent mouseEvent) {
+        
     }
 
-    /**
-     * Creates and opens the file explorer for the user to select a file from
-     *
-     * @return  The file selected by the user
-     */
-    public File openFileChooser() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Load File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON File", "*.json"));
 
-        return fileChooser.showOpenDialog(stage);
+    public void ExitButton(MouseEvent mouseEvent) {
+        Node node = (Node) mouseEvent.getSource();
+        Window exitStage = node.getScene().getWindow();
+        exitStage.hide();
     }
 }
