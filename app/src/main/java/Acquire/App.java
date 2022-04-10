@@ -59,7 +59,8 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
+//        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("SellStock.fxml"));
 
         Scene scene = new Scene(loader.load());
         stage.setResizable(true);
