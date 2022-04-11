@@ -23,5 +23,95 @@
  */
 package Acquire;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+/**
+ * The controller part of our MVC implementation.
+ * This object implements the main control of the app.
+ *
+ * @author Grant Madson
+ */
 public class Acquire {
+    private Board board;
+    private Originator save;
+
+    public Acquire(String player1, String player2, String player3, String player4) {
+
+        Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
+                new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
+                new Corporation("Tower"), new Corporation("Worldwide")};
+
+        int TOTAL_STOCK_NUM = 175;
+        StocksFactory stocksFactory = new StocksFactory();
+        Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
+        for (Corporation corp : corps){
+
+        }
+
+        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
+
+        //this.board = new Board();
+        this.save = new Originator();
+    }
+
+    public Acquire(Board board) {
+        this.board = board;
+    }
+
+    public ArrayList<Player> getPlayers(){
+        return null;
+    }
+
+    public ArrayList<Tile> tilesOnBoard(){
+        return null;
+    }
+
+    public void placeTile(Tile tile){
+        //TODO add exception if tile cant be placed due to safe
+    }
+
+    public Corporation[] getCorporations(){
+        return null;
+    }
+
+    public void newGame(String player1, String player2, String player3, String player4){
+
+    }
+
+    public void loadGame(File file){
+
+    }
+
+    public void saveGame(File file){
+
+    }
+
+    public void buyStock(Stock stock, Player player){
+
+    }
+
+    public boolean endGame(){
+        return false;
+    }
+
+    public void endTurn(){
+
+    }
+
+    public void giveTile(Player player){
+    }
+
+    private boolean isTouchingCorp(){
+        return false;
+    }
+
+    private Corporation[] corpsBeingTouched(Tile tile){
+        return null;
+    }
+
+    private void merge(Corporation[] corps){
+
+    }
 }

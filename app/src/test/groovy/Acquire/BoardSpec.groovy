@@ -23,7 +23,6 @@ class BoardSpec extends Specification {
 
     Board board = new Board(tiles, stocks, corporations, players, tilesPlaced, currentTurn)
 
-
     /**
      * Tests that when a tile is placed whether or not it appears in the array of placed tiles in the board.
      *

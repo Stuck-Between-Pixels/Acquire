@@ -35,7 +35,7 @@ import java.util.*;
  * @author Grant Madson
  */
 public class Board {
-    private final TilePileIterator tiles;
+    @Getter private final TilePileIterator tiles;
     @Getter @Setter private Stock[] stocks;
     @Getter private final Corporation[] corporations;
     @Getter private final ArrayList<Player> players;
