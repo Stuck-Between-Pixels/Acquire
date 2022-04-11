@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -60,7 +61,7 @@ public class AcquireController {
 
 
     @FXML
-    public void buyStockButton(MouseEvent mouseEvent) throws IOException {
-        BuyStockController.buyStockButtonClicked(mouseEvent);
+    public void buyStockButton() throws IOException {
+        BuyStock.Start(new Stage());
     }
 }

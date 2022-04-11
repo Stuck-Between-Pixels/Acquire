@@ -3,6 +3,7 @@ package Acquire;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -78,9 +79,14 @@ public class BuyStockController implements Initializable {
     private String sharesLeftMsg = "Shares Left: ";
 
     @FXML
-    void okButtonClicked() {
-        Stage stage = (Stage) okButton.getScene().getWindow();
-        stage.close();
+    void okayButtonClicked(MouseEvent mouseEvent) {
+        Node node = (Node) mouseEvent.getSource();
+        Window exitWindow = node.getScene().getWindow();
+
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+        a.setTitle("Buy Stock Confirmation");
+        a.setContentText("Are you sure you want to buy the chosen stock?");
+        a.showAndWait().filter(r -> r == ButtonType.OK).ifPresent(r -> exitWindow.hide());
     }
     @FXML
     void cancelButtonClicked() {
@@ -163,15 +169,4 @@ public class BuyStockController implements Initializable {
         return returnString + totalShareCost;
     }
 
-    @FXML
-    public static void buyStockButtonClicked(MouseEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("buystock.fxml"));
-        Parent parent = fxmlLoader.load();
-
-        Scene scene = new Scene(parent, 500, 375);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(scene);
-        stage.showAndWait();
-    }
 }
