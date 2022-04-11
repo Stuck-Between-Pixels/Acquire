@@ -93,13 +93,18 @@ public class SellStockController implements Initializable {
     @FXML
     private Spinner<Integer> worldwideSpinner;
 
-//    Player player;
-//    Corporation[] corps;
-//
-//    public SellStockController(Player player, Corporation[] corps) {
-//        this.player = player;
-//        this.corps = corps;
-//    }
+    private Acquire game;
+    private Player cur;
+    private String corpName;
+
+    public void setAcquire(Acquire acquire) {
+        game = acquire;
+        cur = game.getBoard().getCurrentTurn();
+    }
+
+    public void setCorporation(String name) {
+        corpName = name;
+    }
 
     @FXML
     void cancelButtonClicked(ActionEvent event) {
@@ -109,28 +114,28 @@ public class SellStockController implements Initializable {
 
     @FXML
     void okButtonClicked(ActionEvent event) {
-        // sell the selected stocks
-//        for (int i=0; i<americanSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[1]);
-//        }
-//        for (int i=0; i<continentalSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[2]);
-//        }
-//        for (int i=0; i<festivalSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[3]);
-//        }
-//        for (int i=0; i<imperialSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[4]);
-//        }
-//        for (int i=0; i<sacksonSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[5]);
-//        }
-//        for (int i=0; i<towerSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[6]);
-//        }
-//        for (int i=0; i<worldwideSpinner.getValue(); i++) {
-//            player.removeStockByCorp(corps[7]);
-//        }
+        //sell the selected stocks
+        for (int i=0; i<americanSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("american"));
+        }
+        for (int i=0; i<continentalSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("continental"));
+        }
+        for (int i=0; i<festivalSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("festival"));
+        }
+        for (int i=0; i<imperialSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("imperial"));
+        }
+        for (int i=0; i<sacksonSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("sackson"));
+        }
+        for (int i=0; i<towerSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("tower"));
+        }
+        for (int i=0; i<worldwideSpinner.getValue(); i++) {
+            cur.removeStockByCorp(new Corporation("worldwide"));
+        }
 
         // close window
         Stage stage = (Stage) cancelButton.getScene().getWindow();
