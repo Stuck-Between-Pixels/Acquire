@@ -17,10 +17,6 @@ import java.util.ResourceBundle;
 
 public class BuyStockController implements Initializable {
     @FXML
-    private Button okButton;
-    @FXML
-    private Button cancelButton;
-    @FXML
     private Label continentalCost;
     @FXML
     private Label continentalShares;
@@ -88,10 +84,12 @@ public class BuyStockController implements Initializable {
         a.setContentText("Are you sure you want to buy the chosen stock?");
         a.showAndWait().filter(r -> r == ButtonType.OK).ifPresent(r -> exitWindow.hide());
     }
+
     @FXML
-    void cancelButtonClicked() {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+    void cancelButtonClicked(MouseEvent mouseEvent) {
+        Node node = (Node) mouseEvent.getSource();
+        Window exitWindow = node.getScene().getWindow();
+        exitWindow.hide();
     }
 
     @Override
