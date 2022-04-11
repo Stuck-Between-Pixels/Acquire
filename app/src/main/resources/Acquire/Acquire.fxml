@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane maxHeight="1080.0" maxWidth="1920.0" minHeight="640.0" minWidth="340.0" pickOnBounds="false" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <StackPane maxHeight="1494.0" maxWidth="1920.0" minHeight="640.0" minWidth="340.0" prefHeight="768.0" prefWidth="1878.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+         <children>
+            <ImageView fitHeight="1080.0" fitWidth="1920.0">
+               <image>
+                  <Image url="@../images/whitebrickBG.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <GridPane maxHeight="1080.0" maxWidth="1920.0" minHeight="640.0" minWidth="340.0" prefHeight="768.0" prefWidth="1366.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="175.0" minHeight="30.0" prefHeight="125.6" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="685.6000091552735" minHeight="10.0" prefHeight="643.2" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="120.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="1000.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+               <GridPane.margin>
+                  <Insets left="30.0" top="20.0" />
+               </GridPane.margin>
+            </Rectangle>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="499.599951171875" minHeight="10.0" prefHeight="497.9999755859375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="285.200048828125" minHeight="10.0" prefHeight="94.80002441406248" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane maxWidth="1920.0" minWidth="340.0" prefHeight="643.0" prefWidth="1349.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="210.4000244140625" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1052.1999877929688" minWidth="10.0" prefWidth="1049.5999755859375" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="610.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="185.0">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="15.0" />
+                     </GridPane.margin></Rectangle>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/BuildingPlaceholders/Continental_Building.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/BuildingPlaceholders/Imperial_Building.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/BuildingPlaceholders/Tower_Building.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" top="25.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/BuildingPlaceholders/Sackson_Building.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/BuildingPlaceholders/Festival_Building.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/BuildingPlaceholders/American_Building.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets left="120.0" top="25.0" />
+                     </padding>
+                  </VBox>
+                  <ImageView fitHeight="200.0" fitWidth="70.0" nodeOrientation="INHERIT" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                     <image>
+                        <Image url="@../images/BuildingPlaceholders/Worldwide_Building.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets top="445.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <VBox maxHeight="700.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="184.0" spacing="10.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </GridPane.margin>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</GridPane>
