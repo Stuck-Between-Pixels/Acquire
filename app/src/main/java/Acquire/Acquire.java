@@ -44,21 +44,32 @@ public class Acquire {
     @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
             new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
             new Corporation("Tower"), new Corporation("Worldwide")};
-    @Getter final private ArrayList<Stock> stocks = new ArrayList<>(TOTAL_STOCK_NUM);
+    @Getter private Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
+    private final ArrayList<Tile> tilesPlaced = new ArrayList<>();
 
     public Acquire(String player1, String player2, String player3, String player4) {
 
-
         StocksFactory stocksFactory = new StocksFactory();
+        ArrayList<Stock> stocksToAdd = new ArrayList<>();
         for (Corporation corp : corps){
             Stock[] newStocks = (Stock[]) stocksFactory.createList(corp);
-            stocks.addAll(Arrays.stream(newStocks).toList());
+            stocksToAdd.addAll(Arrays.stream(newStocks).toList());
         }
+        stocks = stocksToAdd.toArray(stocks);
 
         players = new ArrayList<>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
 
         //this.board = new Board();
         this.save = new Originator();
+
+        TilePileFactory tilePileFactory = new TilePileFactory();
+        TilePile[] tilePiles = (TilePile[]) tilePileFactory.createList();
+        board = new Board(tilePiles[0].iterator(),
+                stocks,
+                corps,
+                players,
+                tilesPlaced,
+                players.get(0));
     }
 
     public Acquire(Board board) {
@@ -66,7 +77,7 @@ public class Acquire {
     }
 
     public ArrayList<Tile> tilesOnBoard(){
-        return null;
+        return board.getTilesPlaced();
     }
 
     public void placeTile(Tile tile){
@@ -74,7 +85,7 @@ public class Acquire {
     }
 
     public Corporation[] getCorporations(){
-        return null;
+        return board.getCorporations();
     }
 
     public void newGame(String player1, String player2, String player3, String player4){
@@ -90,11 +101,20 @@ public class Acquire {
     }
 
     public void buyStock(Stock stock, Player player){
-
+        if (player.getMoney() - stock.getPrice() <= 0) return;
+        player.setMoney(player.getMoney() - stock.getPrice());
+        player.addStock(stock);
     }
 
     public boolean endGame(){
-        return false;
+        int count = 0;
+        for (var corp : board.getCorporations()) {
+            if (corp.getNumTiles() < 41) return true;
+            if (corp.isSafe()) {
+                count++;
+            }
+        }
+        return count == board.getCorporations().length;
     }
 
     public void endTurn(){
@@ -102,6 +122,7 @@ public class Acquire {
     }
 
     public void giveTile(Player player){
+        player.giveTile(board.getTile());
     }
 
     private boolean isTouchingCorp(){
