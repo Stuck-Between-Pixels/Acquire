@@ -3,26 +3,65 @@ package Acquire;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class AcquireController {
     @FXML
-    public ImageView TileSix;
+    public JFXButton ContinentalStockButton;
 
     @FXML
-    private JFXButton TilePileButton;
+    public JFXButton SacksonStockButton;
 
     @FXML
-    private JFXButton BuyStockButton;
+    public JFXButton ImperialStockButton;
 
     @FXML
-    private JFXButton EndGameButton;
+    public JFXButton FestivalStockButton;
 
     @FXML
-    private JFXButton DiscardTile;
+    public JFXButton TowerStockButton;
 
     @FXML
-    private JFXButton EndTurnButton;
+    public JFXButton AmericanStockButton;
 
     @FXML
-    private JFXButton GameRulesButton;
+    public JFXButton WordlwideStockButton;
+
+    @FXML
+    public JFXButton ContinentalBuilding;
+
+    @FXML
+    public JFXButton SacksonBuilding;
+
+    @FXML
+    public JFXButton ImperialBuilding;
+
+    @FXML
+    public JFXButton FestivalBuilding;
+
+    @FXML
+    public JFXButton TowerBuilding;
+
+    @FXML
+    public JFXButton AmericanBuilding;
+
+    @FXML
+    public JFXButton WorldwideBuilding;
+
+    @FXML
+    public synchronized void ContinentalStockDrag(DragEvent event) {
+
+    }
+
+
+
+    @FXML
+    public void buyStockButton() throws IOException {
+        BuyStock.Start(new Stage());
+    }
 }

@@ -59,7 +59,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(App.class.getResource("StartMenu.fxml"));
 
         Scene scene = new Scene(loader.load());
         stage.setResizable(true);
@@ -67,9 +67,10 @@ public class App extends Application {
         stage.setTitle("Acquire");
         stage.setScene(scene);
         stage.show();
+
+         */
+        StartMenuClass.Start(new Stage());
     }
-
-
 
     /**
      * A method to update the scene currently on the stage. For example, when the user presses the start button from the
