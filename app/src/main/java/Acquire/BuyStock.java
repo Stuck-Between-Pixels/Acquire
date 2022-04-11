@@ -1,2 +1,4 @@
-package Acquire;public class BuyStock {
+package Acquire;
+
+public class BuyStock {
 }

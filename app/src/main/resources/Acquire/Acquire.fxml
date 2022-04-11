@@ -281,7 +281,7 @@
                                     <Insets top="30.0" />
                                  </VBox.margin>
                                  <children>
-                                    <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="47.0" prefWidth="64.0" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true" onAction="#buyStockButtonClicked">
+                                    <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="47.0" prefWidth="64.0" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true" onMouseClicked="#buyStockButton">
                                        <graphic>
                                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00991abf" height="44.0" stroke="#007113" strokeType="INSIDE" width="113.0" />
                                        </graphic>

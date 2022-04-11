@@ -4,6 +4,10 @@ import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class AcquireController {
     @FXML
@@ -51,5 +55,12 @@ public class AcquireController {
     @FXML
     public synchronized void ContinentalStockDrag(DragEvent event) {
 
+    }
+
+
+
+    @FXML
+    public void buyStockButton(MouseEvent mouseEvent) throws IOException {
+        BuyStockController.buyStockButtonClicked(mouseEvent);
     }
 }
