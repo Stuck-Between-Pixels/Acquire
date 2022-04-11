@@ -24,19 +24,7 @@ public class StartMenuController {
 
     @FXML
     public void StartGame() throws IOException {
-        NewOrLoadGameController.NewGame();
-    }
-
-    @FXML
-    void buyStockButtonClicked() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("buystock.fxml"));
-        Parent parent = fxmlLoader.load();
-
-        Scene scene = new Scene(parent, 500, 375);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(scene);
-        stage.showAndWait();
+        NewOrLoadGameClass.Start(new Stage());
     }
 
 

@@ -31,13 +31,13 @@ import java.util.LinkedList;
  * @author Ben Thomas
  */
 public class TilePile {
-    private final LinkedList<Tile> tiles = new LinkedList<>();
+    private static final LinkedList<Tile> tiles = new LinkedList<>();
 
     /**
      * Adds the given collection of {@link Tile tiles} to the TilePile
      * @param newTiles to add to the tile pile
      */
-    public void addTiles(Collection<Tile> newTiles) {
+    public static void addTiles(Collection<Tile> newTiles) {
         tiles.addAll(newTiles);
     }
 
@@ -50,7 +50,7 @@ public class TilePile {
     }
 
     /**
-     * Retries the number of tiles the tile pile is holding
+     * Returns the number of tiles the tile pile is holding
      * @return number of tiles in the tile pile
      */
     public int size() {

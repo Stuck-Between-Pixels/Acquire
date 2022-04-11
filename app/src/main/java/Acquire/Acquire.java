@@ -3,12 +3,18 @@ package Acquire;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+<<<<<<< HEAD
+import lombok.Getter;
+=======
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+>>>>>>> 8857db6000cc296c4053a8bde3ac0518440685ce
 
 public class Acquire extends Scene {
+    @Getter private Board board;
+
     public Acquire(Parent root) {super(root);}
 
     public static void Start(Stage stage) throws IOException {
