@@ -129,14 +129,14 @@ public class Player {
     }
 
     /**
-     * Removes a stock by the stock's corporation from the player's stocks
+     * Removes a stock by the stock's corporation's name from the player's stocks
      * @param corporation of the stock to be removed from the player's stocks
      * @throws NoSuchElementException if the player does not have a stock with the given corporation
      */
     public void removeStockByCorp(Corporation corporation) {
         Stock remove = null;
         for (var stock : stocks) {
-            if (stock.getCorp() == corporation) {
+            if (Objects.equals(stock.getCorp().getName(), corporation.getName())) {
                 remove = stock;
                 break;
             }
