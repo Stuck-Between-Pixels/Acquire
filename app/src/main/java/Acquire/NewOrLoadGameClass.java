@@ -3,6 +3,7 @@ package Acquire;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -17,6 +18,7 @@ public class NewOrLoadGameClass extends Scene {
         Scene scene = new Scene(loader.load());
         stage.setResizable(true);
         stage.initStyle(StageStyle.DECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Acquire - New Game");
         stage.setScene(scene);
         stage.show();

@@ -2,13 +2,10 @@ package Acquire;
 
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 import java.io.IOException;
+
 
 public class AcquireController {
     @FXML
@@ -58,6 +55,55 @@ public class AcquireController {
 
     }
 
+
+    public void tilePile() {
+        String path = "../../resources/images/Tiles/"; //File name goes here
+        String letter = "A";
+        Integer number = 1;
+
+        String string = letter + number;
+        int result = 0;
+        switch(string.charAt(1)){
+
+            case 'A' -> {
+                result = 0;
+            }
+
+            case 'B' -> {
+                result = 13;
+            }
+
+            case 'C' -> {
+                result = 13*2;
+            }
+
+            case 'D' -> {
+                result = 13*3;
+            }
+
+            case 'E' -> {
+                result = 13*4;
+            }
+
+            case 'F' -> {
+                result = 13*5;
+            }
+
+            case 'G' -> {
+                result = 13*6;
+            }
+
+            case 'H' -> {
+                result = 13*7;
+            }
+
+            case 'I' -> {
+                result = 13*8;
+            }
+
+        }
+        result = result + Integer.parseInt(String.valueOf(string.charAt(0)));
+    }
 
 
     @FXML
