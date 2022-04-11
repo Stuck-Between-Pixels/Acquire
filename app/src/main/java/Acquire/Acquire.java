@@ -23,6 +23,8 @@
  */
 package Acquire;
 
+import lombok.Getter;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,21 +38,24 @@ import java.util.Arrays;
 public class Acquire {
     private Board board;
     private Originator save;
+    private final int TOTAL_STOCK_NUM = 175;
+
+    @Getter private ArrayList<Player> players;
+    @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
+            new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
+            new Corporation("Tower"), new Corporation("Worldwide")};
+    @Getter final private ArrayList<Stock> stocks = new ArrayList<>(TOTAL_STOCK_NUM);
 
     public Acquire(String player1, String player2, String player3, String player4) {
 
-        Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
-                new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
-                new Corporation("Tower"), new Corporation("Worldwide")};
 
-        int TOTAL_STOCK_NUM = 175;
         StocksFactory stocksFactory = new StocksFactory();
-        Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
         for (Corporation corp : corps){
-
+            Stock[] newStocks = (Stock[]) stocksFactory.createList(corp);
+            stocks.addAll(Arrays.stream(newStocks).toList());
         }
 
-        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
+        players = new ArrayList<>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
 
         //this.board = new Board();
         this.save = new Originator();
@@ -58,10 +63,6 @@ public class Acquire {
 
     public Acquire(Board board) {
         this.board = board;
-    }
-
-    public ArrayList<Player> getPlayers(){
-        return null;
     }
 
     public ArrayList<Tile> tilesOnBoard(){
