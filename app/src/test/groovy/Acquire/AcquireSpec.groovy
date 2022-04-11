@@ -58,114 +58,132 @@ class AcquireSpec extends Specification {
         when: "A tile is placed on the board"
         acquire.placeTile(tile)
         then: "Tile appears in placed tiles"
-
+        acquire.tilesOnBoard().contains(tile)
     }
 
     def "Placing a tile can create a corporation"() {
         given:
-
+        Tile tile = new Tile(1)
+        Tile tile2 = new Tile(13)
         when:
-        // TODO implement stimulus
+        acquire.placeTile(tile)
+        acquire.placeTile(tile2)
         then:
-        // TODO implement assertions
+        for (Corporation corp : acquire.getCorporations()){
+            if (corp.getNumTiles() != 0){
+                return true
+            }
+        }
     }
 
     def "Placing a tile can merge a corporation"() {
         given:
-
+        Tile tile = new Tile(1)
+        Tile tile2 = new Tile(13)
+        Tile tile3 = new Tile(3)
+        Tile tile4 = new Tile(15)
+        Tile tile5 = new Tile(2)
         when:
-        // TODO implement stimulus
+        acquire.placeTile(tile)
+        acquire.placeTile(tile2)
+        acquire.placeTile(tile3)
+        acquire.placeTile(tile4)
+        acquire.placeTile(tile5)
         then:
-        // TODO implement assertions
+        for (Corporation corp : acquire.getCorporations()){
+            if (corp.getNumTiles() == 5){
+                return true
+            }
+        }
     }
 
     def "Placing a tile between two safe corps throws exception"() {
         given:
-
-        when:
-        // TODO implement stimulus
-        then:
-        // TODO implement assertions
+        for (int i = 0 ; i <11 ; i++){
+            acquire.placeTile(new Tile(i))
+            acquire.placeTile(new Tile(i+26))
+        }
+        when: "Tile placed between two safe corporations"
+        acquire.placeTile(new Tile(13))
+        then: "Throws exception"
+        thrown SafeCorporationException
     }
 
-    def "Placing a tile between two same size corps causes a player decision"() {
+    def "Placing a tile between two same size corps causes one of them to win"() {
         given:
-
-        when:
-        // TODO implement stimulus
+        for (int i = 0 ; i <5 ; i++){
+            acquire.placeTile(new Tile(i))
+            acquire.placeTile(new Tile(i+26))
+        }
+        when: "Tile placed between two same size corporations"
+        acquire.placeTile(new Tile(13))
         then:
-        // TODO implement assertions
-    }
-
-    def "make corporation makes the seven corporations"() {
-        given:
-
-        when:
-        // TODO implement stimulus
-        then:
-        // TODO implement assertions
-    }
-
-    def "make corporation initializes stock for each corp for Board"() {
-        given:
-
-        when:
-        // TODO implement stimulus
-        then:
-        // TODO implement assertions
+        for (Corporation corp : acquire.getCorporations()){
+            if (corp.getNumTiles() > 4){
+                return true
+            }
+        }
     }
 
     def "newGame creates a new game"() {
         given:
-
+        Player player1 = new Player("me")
+        Board board = new Board(null, null, null, new ArrayList<Player>(Arrays.asList(player1)), null, null)
         when:
-        // TODO implement stimulus
+        acquire.newGame("me", "you", "them", "us")
         then:
-        // TODO implement assertions
+        !acquire.getPlayers().contains(player1)
     }
 
-    def "Load game loads correctly"() {
+    def "Load game and save game work correctly"() {
         given:
-
-        when:
-        // TODO implement stimulus
+        String player1 = "Jim"
+        String player2 = "Jimmy"
+        String player3 = "Jimothy"
+        String player4 = "jimmmmm"
+        saved = new Acquire(player1, player2, player3, player4)
+        saved.saveGame(new File("SaveFiles/savedGame"))
+        Acquire notSaved = new Acquire("me1", "you1", "them1", "us1")
+        when: "load game"
+        notSaved.loadGame(new File("SaveFiles/savedGame"))
         then:
-        // TODO implement assertions
-    }
-
-    def "saveGame correctly saves the game"() {
-        given:
-
-        when:
-        // TODO implement stimulus
-        then:
-        // TODO implement assertions
+        notSaved.getPlayers().contains(player1)
     }
 
     def "buyStock adds stocks to specified player"() {
         given:
-
+        String player1 = "Jim"
+        String player2 = "Jimmy"
+        String player3 = "Jimothy"
+        String player4 = "jimmmmm"
+        acquire = new Acquire(player1, player2, player3, player4)
+        Stock stock = new Stock(new Corporation("wakanda"))
         when:
-        // TODO implement stimulus
+        acquire.buyStock(stock, player1)
         then:
-        // TODO implement assertions
+        player1.stockIterator().next().is(stock)
     }
 
     def "endGame returns boolean of whether game can end or not"() {
-        given:
-
         when:
-        // TODO implement stimulus
+        int i = 0
+        while(i < 41){
+            acquire.placeTile(new Tile(i))
+        }
         then:
-        // TODO implement assertions
+        acquire.endGame()
     }
 
-    def "endTurn checks that players have played a tile and drawn a tile, if possible"() {
+    def "endTurn checks that players have played a tile and drawn a tile"() {
         given:
-
+        String player1 = "Jim"
+        String player2 = "Jimmy"
+        String player3 = "Jimothy"
+        String player4 = "jimmmmm"
+        acquire = new Acquire(player1, player2, player3, player4)
         when:
-        // TODO implement stimulus
+        acquire.endTurn()
         then:
-        // TODO implement assertions
+        thrown TurnNotOverException
     }
 }

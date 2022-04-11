@@ -52,7 +52,7 @@ public class Acquire {
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
 
-        this.board = new Board();
+        //this.board = new Board();
         this.save = new Originator();
     }
 
@@ -72,11 +72,11 @@ public class Acquire {
         //TODO add exception if tile cant be placed due to safe
     }
 
-    public void makeCorporation(){
-
+    public Corporation[] getCorporations(){
+        return null;
     }
 
-    public void newGame(){
+    public void newGame(String player1, String player2, String player3, String player4){
 
     }
 
@@ -88,7 +88,7 @@ public class Acquire {
 
     }
 
-    public void buyStock(Stock stock){
+    public void buyStock(Stock stock, Player player){
 
     }
 
