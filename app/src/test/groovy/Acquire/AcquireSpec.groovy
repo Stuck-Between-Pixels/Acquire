@@ -5,6 +5,7 @@ import spock.lang.Specification
 class AcquireSpec extends Specification {
 
     private Acquire acquire;
+    boolean result = false
 
     void setup() {
         String player1 = "Jim"
@@ -71,9 +72,10 @@ class AcquireSpec extends Specification {
         then:
         for (Corporation corp : acquire.getCorporations()){
             if (corp.getNumTiles() != 0){
-                return true
+                result = true
             }
         }
+        assert result
     }
 
     def "Placing a tile can merge a corporation"() {
@@ -92,9 +94,10 @@ class AcquireSpec extends Specification {
         then:
         for (Corporation corp : acquire.getCorporations()){
             if (corp.getNumTiles() == 5){
-                return true
+                result = true
             }
         }
+        assert result
     }
 
     def "Placing a tile between two safe corps throws exception"() {
@@ -120,9 +123,10 @@ class AcquireSpec extends Specification {
         then:
         for (Corporation corp : acquire.getCorporations()){
             if (corp.getNumTiles() > 4){
-                return true
+                result = true
             }
         }
+        assert result
     }
 
     def "newGame creates a new game"() {

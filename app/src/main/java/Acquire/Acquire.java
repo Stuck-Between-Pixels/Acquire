@@ -53,7 +53,7 @@ public class Acquire {
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
 
         //this.board = new Board();
-        this.save = new Originator(board);
+        this.save = new Originator();
     }
 
     public Acquire(Board board) {

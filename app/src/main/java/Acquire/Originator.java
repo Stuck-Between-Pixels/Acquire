@@ -1,19 +1,23 @@
 package Acquire;
 
-import java.io.File;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.*;
 
 public class Originator {
-    private Board game;
 
-    public Originator(Board game) {
-        this.game = game;
+    public void gameSave(File file, Board game) throws IOException {
+        try (Writer writer = new FileWriter(file)) {
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(game.getState(), writer);
+        }
     }
 
-    public void gameSave(File file){
-
-    }
-
-    public Board gameRestore(File file){
-        return null;
+    public Board gameRestore(File file) throws IOException {
+        try (Reader reader = new FileReader(file)) {
+            Gson gson = new Gson();
+            return gson.fromJson(reader, Board.class);
+        }
     }
 }
