@@ -4,7 +4,12 @@ import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.DragEvent;
 import javafx.stage.Stage;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 
 public class AcquireController {
@@ -105,9 +110,17 @@ public class AcquireController {
         result = result + Integer.parseInt(String.valueOf(string.charAt(0)));
     }
 
-
     @FXML
     public void buyStockButton() throws IOException {
         BuyStock.Start(new Stage());
+    }
+
+    @FXML
+    public void hyperLinkClicked() throws URISyntaxException {
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.ultraboardgames.com/acquire/game-rules.php"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

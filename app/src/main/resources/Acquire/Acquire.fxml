@@ -35,6 +35,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToggleNode?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -222,7 +223,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <VBox maxWidth="250.0" prefHeight="642.0" prefWidth="250.0" spacing="10.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <VBox alignment="TOP_CENTER" maxWidth="250.0" prefHeight="642.0" prefWidth="250.0" spacing="10.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <children>
                               <StackPane prefHeight="50.0" prefWidth="350.0">
                                  <children>
@@ -281,7 +282,7 @@
                                     <Insets top="30.0" />
                                  </VBox.margin>
                                  <children>
-                                    <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="47.0" prefWidth="64.0" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true" onMouseClicked="#buyStockButton">
+                                    <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onMouseClicked="#buyStockButton" prefHeight="47.0" prefWidth="64.0" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                        <graphic>
                                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00991abf" height="44.0" stroke="#007113" strokeType="INSIDE" width="113.0" />
                                        </graphic>
@@ -319,17 +320,11 @@
                                     </JFXButton>
                                  </children>
                               </HBox>
-                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" prefHeight="57.0" prefWidth="118.0" text="GAME RULES" textAlignment="CENTER" textFill="WHITE" wrapText="true" VBox.vgrow="SOMETIMES">
-                                 <graphic>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#007399bf" height="45.0" stroke="#015b76" strokeType="INSIDE" width="130.0" />
-                                 </graphic>
+                              <Hyperlink alignment="CENTER" onAction="#hyperLinkClicked" text="Acquire Game Rules" underline="true">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font size="18.0" />
                                  </font>
-                                 <VBox.margin>
-                                    <Insets left="65.0" />
-                                 </VBox.margin>
-                              </JFXButton>
+                              </Hyperlink>
                            </children>
                            <GridPane.margin>
                               <Insets right="20.0" top="20.0" />
@@ -408,7 +403,7 @@
                               <Insets left="120.0" top="25.0" />
                            </padding>
                         </VBox>
-                        <JFXToggleNode fx:id="WorldwideBuildingToggle"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                        <JFXToggleNode fx:id="WorldwideBuildingToggle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="70.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                            <graphic>
                               <ImageView fitHeight="200.0" fitWidth="70.0" nodeOrientation="INHERIT" preserveRatio="true">
                                  <image>
