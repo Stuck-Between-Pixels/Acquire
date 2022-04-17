@@ -39,6 +39,7 @@ public class Board {
     @Getter @Setter private Stock[] stocks;
     @Getter private final Corporation[] corporations;
     @Getter private final ArrayList<Player> players;
+    private Iterator<Player> playerSequence;
     @Getter private final ArrayList<Tile> tilesPlaced;
     @Getter private Player currentTurn;
 
@@ -59,6 +60,7 @@ public class Board {
         this.players = players;
         this.tilesPlaced = tilesPlaced;
         this.currentTurn = currentTurn;
+        playerSequence = players.iterator();
     }
 
     /**
@@ -105,5 +107,12 @@ public class Board {
         }else{
             throw new PlayerDoesntExistException("Player doesn't exist.");
         }
+    }
+
+    public void nextTurn() {
+        if (!playerSequence.hasNext()) {
+            playerSequence = players.iterator();
+        }
+        currentTurn = playerSequence.next();
     }
 }

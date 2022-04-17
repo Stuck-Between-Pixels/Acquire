@@ -40,11 +40,9 @@ public class Acquire {
     private Originator save;
     private final int TOTAL_STOCK_NUM = 175;
 
-    @Getter private ArrayList<Player> players;
     @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
             new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
             new Corporation("Tower"), new Corporation("Worldwide")};
-    @Getter private Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
     private final ArrayList<Tile> tilesPlaced = new ArrayList<>();
 
     public Acquire(String player1, String player2, String player3, String player4) {
@@ -55,9 +53,11 @@ public class Acquire {
             Stock[] newStocks = (Stock[]) stocksFactory.createList(corp);
             stocksToAdd.addAll(Arrays.stream(newStocks).toList());
         }
+        Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
         stocks = stocksToAdd.toArray(stocks);
 
-        players = new ArrayList<>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
+        ArrayList<Player> players = new ArrayList<>(Arrays.asList(new Player(player1),
+                new Player(player2), new Player(player3), new Player(player4)));
 
         //this.board = new Board();
         this.save = new Originator();
@@ -118,11 +118,11 @@ public class Acquire {
     }
 
     public void endTurn(){
-
+        board.nextTurn();
     }
 
     public void giveTile(Player player){
-        player.giveTile(board.getTile());
+        board.getCurrentTurn().giveTile(board.getTile());
     }
 
     private boolean isTouchingCorp(){
