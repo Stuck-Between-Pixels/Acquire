@@ -5,12 +5,16 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.DragEvent;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.Collection;
+import java.util.LinkedList;
 
 public class AcquireController {
     @FXML
@@ -60,6 +64,48 @@ public class AcquireController {
 
     }
 
+    @FXML
+    public void moveTile() {
+
+    }
+
+
+    private int board_width = 12;
+    private int board_length = 9;
+    private int totalPositions = 108;
+    private int[][]  tilePositions = new int[board_width][board_length];
+
+
+    @FXML
+    public static void listOfImages() {
+        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
+        int tileSpot = 12;
+        int number = 1;
+        String letter = "A";
+        BufferedImage img = null;
+
+        LinkedList tiles = new LinkedList();
+
+
+        try {
+            img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(number)) + letter + ".png"));
+            tiles.add(img);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        TilePile.addTiles(tiles);
+
+        var frame = new JFrame();
+        var icon = new ImageIcon((Image) tiles.get(10));
+        var label = new JLabel(icon);
+        frame.add(label);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
+    }
 
     public void tilePile() {
         String path = "../../resources/images/Tiles/"; //File name goes here
