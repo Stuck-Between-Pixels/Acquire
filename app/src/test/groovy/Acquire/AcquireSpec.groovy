@@ -70,9 +70,7 @@ class AcquireSpec extends Specification {
         acquire.placeTile(tile2)
         then:
         for (Corporation corp : acquire.getCorporations()){
-            if (corp.getNumTiles() != 0){
-                return true
-            }
+            corp.getNumTiles() != 0
         }
     }
 
@@ -91,9 +89,7 @@ class AcquireSpec extends Specification {
         acquire.placeTile(tile5)
         then:
         for (Corporation corp : acquire.getCorporations()){
-            if (corp.getNumTiles() == 5){
-                return true
-            }
+            corp.getNumTiles() == 5
         }
     }
 
@@ -119,9 +115,7 @@ class AcquireSpec extends Specification {
         acquire.placeTile(new Tile(13))
         then:
         for (Corporation corp : acquire.getCorporations()){
-            if (corp.getNumTiles() > 4){
-                return true
-            }
+            corp.getNumTiles() > 4
         }
     }
 

@@ -101,8 +101,8 @@ public class Acquire {
     }
 
     public void buyStock(Stock stock, Player player){
-        if (player.getMoney() - stock.getPrice() <= 0) return;
-        player.setMoney(player.getMoney() - stock.getPrice());
+        if (player.getMoney() - stock.getCorp().getStockPrice() <= 0) return;
+        player.setMoney(player.getMoney() - stock.getCorp().getStockPrice());
         player.addStock(stock);
     }
 

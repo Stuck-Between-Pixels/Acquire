@@ -29,6 +29,7 @@ import lombok.Setter;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 /**
  * Holds information about a corporation and gives methods to modify the corporation's fields.
@@ -38,6 +39,8 @@ public class Corporation {
     @Getter private final String name;
     @Getter @Setter private boolean safe = false;
     private final LinkedList<Tile> tiles = new LinkedList<>();
+    private final LinkedList<Stock> stocks = new LinkedList<>();
+    @Getter @Setter private int stockPrice = 0;
 
     /**
      * Constructs a Corporation object with the given name as an identifier
@@ -45,6 +48,23 @@ public class Corporation {
      */
     public Corporation(String name) {
         this.name = name;
+
+        StocksFactory factory = new StocksFactory();
+        Stock[] stockList = (Stock[]) factory.createList(this);
+        stocks.addAll(Arrays.stream(stockList).toList());
+    }
+
+    public Stock takeStock() {
+        if (stocks.size() == 0) throw new NoSuchElementException("No stocks left in corporation");
+        return stocks.remove();
+    }
+
+    public boolean hasStock() {
+        return stocks.size() != 0;
+    }
+
+    public void addStock(Stock stock) {
+        stocks.add(stock);
     }
 
     /**
