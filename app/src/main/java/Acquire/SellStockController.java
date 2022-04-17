@@ -12,71 +12,19 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SellStockController implements Initializable {
-
-    @FXML
-    private Label americanCost;
-    @FXML
-    private Label americanShares;
-    @FXML
-    private Spinner<Integer> americanSpinner;
-    @FXML
-    private Button cancelButton;
-    @FXML
-    private Label continentalCost;
-    @FXML
-    private Label continentalShares;
-    @FXML
-    private Spinner<Integer> continentalSpinner;
-    @FXML
-    private Label costOfShares;
-    @FXML
-    private Label festivalCost;
-    @FXML
-    private Label festivalShares;
-    @FXML
-    private Spinner<Integer> festivalSpinner;
-    @FXML
-    private Label imperialCost;
-    @FXML
-    private Label imperialShares;
-    @FXML
-    private Spinner<Integer> imperialSpinner;
-    @FXML
-    private Label moneyAfter;
-    @FXML
-    private Label moneyAvailable;
-    @FXML
-    private Button okButton;
-    @FXML
-    private Label sacksonCost;
-    @FXML
-    private Label sacksonShares;
-    @FXML
-    private Spinner<Integer> sacksonSpinner;
-    @FXML
-    private Label towerCost;
-    @FXML
-    private Label towerShares;
-    @FXML
-    private Spinner<Integer> towerSpinner;
-    @FXML
-    private Label worldwideCost;
-    @FXML
-    private Label worldwideShares;
-    @FXML
-    private Spinner<Integer> worldwideSpinner;
+public class SellStockController {
+    @FXML private Button cancelButton;
+    @FXML private Label corpLabel;
+    @FXML private Label costOfSharesLabel;
+    @FXML private Label newBalanceLabel;
+    @FXML private Button okButton;
+    @FXML private Label oldBalanceLabel;
+    @FXML private Label stockCostLabel;
+    @FXML private Spinner<Integer> stockSpinner;
+    @FXML private Label stocksHeldLabel;
 
     private Player cur;
-    private String corpName;
-
-    public void setAcquire(Acquire acquire) {
-        cur = acquire.getBoard().getCurrentTurn();
-    }
-
-    public void setCorporation(String name) {
-        corpName = name;
-    }
+    private Corporation corp;
 
     @FXML
     void cancelButtonClicked(ActionEvent event) {
@@ -87,47 +35,36 @@ public class SellStockController implements Initializable {
     @FXML
     void okButtonClicked(ActionEvent event) {
         //sell the selected stocks
-        for (int i=0; i<americanSpinner.getValue(); i++) {
-            cur.removeStockByCorp(new Corporation(corpName));
+        for (int i=0; i<stockSpinner.getValue(); i++) {
+            cur.removeStockByCorp(corp);
         }
 
         // close window
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void setup(Acquire acquire, Corporation sellable) {
+        cur = acquire.getBoard().getCurrentTurn();
+        this.corp = sellable;
+
         // configure spinner
-        SpinnerValueFactory<Integer> americanValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("american")),0);
-        this.americanSpinner.setValueFactory(americanValFac);
+        SpinnerValueFactory<Integer> stockValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
+                cur.getNumStockFromCorp(sellable),0);
+        stockValFac.valueProperty().addListener((obs, oldValue, newValue) ->
+                {
+                costOfSharesLabel.setText(Integer.toString(newValue * 800));
+                newBalanceLabel.setText(Integer.toString(cur.getMoney() + (newValue * 800)));
+                });  // NEED TO FIX
+        this.stockSpinner.setValueFactory(stockValFac);
 
-        SpinnerValueFactory<Integer> continentalValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("continental")),0);
-        this.continentalSpinner.setValueFactory(continentalValFac);
+        //configure labels
+        oldBalanceLabel.setText(Integer.toString(cur.getMoney()));
+        newBalanceLabel.setText("0");
+        costOfSharesLabel.setText("0");
 
-        SpinnerValueFactory<Integer> festivalValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("festival")),0);
-        this.festivalSpinner.setValueFactory(festivalValFac);
-
-        SpinnerValueFactory<Integer> imperialValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("imperial")),0);
-        this.imperialSpinner.setValueFactory(imperialValFac);
-
-        SpinnerValueFactory<Integer> sacksonValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("sackson")),0);
-        this.sacksonSpinner.setValueFactory(sacksonValFac);
-
-        SpinnerValueFactory<Integer> towerValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("tower")),0);
-        this.towerSpinner.setValueFactory(towerValFac);
-
-        SpinnerValueFactory<Integer> worldWideValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(new Corporation("worldWide")),0);
-        this.worldwideSpinner.setValueFactory(worldWideValFac);
-
-        //configure money
-        moneyAvailable.setText(Integer.toString(cur.getMoney()));
+        corpLabel.setText(sellable.getName());
+        stocksHeldLabel.setText(Integer.toString(cur.getNumStockFromCorp(sellable)));
+        stockCostLabel.setText("NEED TO FIX");
     }
 }
