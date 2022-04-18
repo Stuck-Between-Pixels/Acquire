@@ -13,7 +13,6 @@ class BoardSpec extends Specification {
 
     Corporation corp = new Corporation("WAP")
     Corporation corp2 = new Corporation("WAP2")
-    Stock[] stocks = [new Stock(corp), new Stock(corp), new Stock(corp)]
     ArrayList<Tile> tileList = new ArrayList<Tile>(Arrays.asList(new Tile(1), new Tile(2), new Tile(3)))
     TilePileIterator tiles = new TilePileIterator(tileList)
     final Corporation[] corporations = [corp, corp2]
@@ -21,7 +20,7 @@ class BoardSpec extends Specification {
     final ArrayList<Tile> tilesPlaced = new ArrayList<Tile>(Arrays.asList(new Tile(4), new Tile(5)))
     Player currentTurn = players.get(0)
 
-    Board board = new Board(tiles, stocks, corporations, players, tilesPlaced, currentTurn)
+    Board board = new Board(tiles, corporations, players, tilesPlaced, currentTurn)
 
     /**
      * Tests that when a tile is placed whether or not it appears in the array of placed tiles in the board.
@@ -52,7 +51,6 @@ class BoardSpec extends Specification {
 
         then: "check that all data is the same"
         board.tilesPlaced.is(board2.tilesPlaced)
-        board.stocks.is(board2.stocks)
         board.corporations.is(board2.corporations)
         board.players.is(board2.players)
         board.currentTurn.is(board2.currentTurn)
@@ -73,34 +71,13 @@ class BoardSpec extends Specification {
 
         ArrayList<Tile> tiles = new ArrayList<Tile>(Arrays.asList(tile1, tile2, tile3, tile4))
 
-        Board board = new Board(new TilePileIterator(tiles), null, null, null, null, null)
+        Board board = new Board(new TilePileIterator(tiles), null, null, null, null)
 
         when: "get a random tile"
         Tile randomTile = board.getTile()
 
         then:
         tiles.contains(randomTile)
-    }
-
-    /**
-     * Checks whether or not getStocks returns the available stocks.
-     */
-    def "GetStocks returns the available stocks"() {
-        setup:
-        Stock stock1 = new Stock(corp)
-        Stock stock2 = new Stock(corp)
-        Stock stock3 = new Stock(corp)
-        Stock stock4 = new Stock(corp)
-
-        Stock[] stocks = [stock1, stock2, stock3, stock4]
-
-        Board board = new Board(null, stocks, null, null, null, null)
-
-        when: "get stocks"
-        Stock[] returnedStocks = board.getStocks()
-
-        then: "returns the correct stocks"
-        returnedStocks == stocks
     }
 
 
@@ -119,7 +96,7 @@ class BoardSpec extends Specification {
         Corporation corp7 = new Corporation("7")
         Corporation corp8 = new Corporation("8")
         Corporation[] list = [corp1, corp2, corp3, corp4, corp5, corp6, corp7, corp8]
-        board = new Board(null, null, list, null, null, null)
+        board = new Board(null,  list, null, null, null)
 
         when: "get corporations"
         Corporation[] corps = board.getCorporations()
@@ -141,7 +118,7 @@ class BoardSpec extends Specification {
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
-        Board board = new Board(null, null, null, players, null, null)
+        Board board = new Board(null,null, players, null, null)
 
         when: "Get the players"
         ArrayList<Player> returned = board.getPlayers()
@@ -163,7 +140,7 @@ class BoardSpec extends Specification {
 
         ArrayList<Tile> tiles = new ArrayList<Tile>(Arrays.asList(tile1, tile2, tile3, tile4))
 
-        Board board = new Board(null, null, null, null, tiles, null)
+        Board board = new Board(null,null, null, tiles, null)
 
         when: "get tiles that have been placed"
         ArrayList<Tile> returnedTiles = board.getTilesPlaced()
@@ -185,7 +162,7 @@ class BoardSpec extends Specification {
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
-        Board board = new Board(null, null, null, players, null, player1)
+        Board board = new Board(null, null, players, null, player1)
 
         when: "get the current player"
         Player currentPlayer = board.getCurrentTurn()
@@ -202,7 +179,7 @@ class BoardSpec extends Specification {
         Player player = new Player("a")
         Player player2 = new Player("b")
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player, player2))
-        Board tempBoard = new Board(null, null, null, players, null, player2)
+        Board tempBoard = new Board(null, null, players, null, player2)
 
         when: "set current turn to player"
         tempBoard.setCurrentTurn(player)
@@ -224,7 +201,7 @@ class BoardSpec extends Specification {
 
         ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(player1, player2, player3, player4))
 
-        Board board = new Board(null, null, null, players, null, player1)
+        Board board = new Board(null,null, players, null, player1)
 
         when: "set the current player"
         board.setCurrentTurn(player5)

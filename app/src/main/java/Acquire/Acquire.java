@@ -37,35 +37,21 @@ import java.util.Arrays;
  */
 public class Acquire {
     private Board board;
-    private Originator save;
-    private final int TOTAL_STOCK_NUM = 175;
+    private Originator save = new Originator();
 
     @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
             new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
             new Corporation("Tower"), new Corporation("Worldwide")};
-    private final ArrayList<Tile> tilesPlaced = new ArrayList<>();
 
     public Acquire(String player1, String player2, String player3, String player4) {
-
-        StocksFactory stocksFactory = new StocksFactory();
-        ArrayList<Stock> stocksToAdd = new ArrayList<>();
-        for (Corporation corp : corps){
-            Stock[] newStocks = (Stock[]) stocksFactory.createList(corp);
-            stocksToAdd.addAll(Arrays.stream(newStocks).toList());
-        }
-        Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
-        stocks = stocksToAdd.toArray(stocks);
 
         ArrayList<Player> players = new ArrayList<>(Arrays.asList(new Player(player1),
                 new Player(player2), new Player(player3), new Player(player4)));
 
-        //this.board = new Board();
-        this.save = new Originator();
-
         TilePileFactory tilePileFactory = new TilePileFactory();
-        TilePile[] tilePiles = (TilePile[]) tilePileFactory.createList();
-        board = new Board(tilePiles[0].iterator(),
-                stocks,
+        TilePile[] tilePile = (TilePile[]) tilePileFactory.createList();
+        ArrayList<Tile> tilesPlaced = new ArrayList<>();
+        board = new Board(tilePile[0].iterator(),
                 corps,
                 players,
                 tilesPlaced,
@@ -93,7 +79,7 @@ public class Acquire {
     }
 
     public void loadGame(File file){
-
+        board = save.gameRestore(file);
     }
 
     public void saveGame(File file){

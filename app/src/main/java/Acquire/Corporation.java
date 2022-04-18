@@ -39,7 +39,7 @@ public class Corporation {
     @Getter private final String name;
     @Getter @Setter private boolean safe = false;
     private final LinkedList<Tile> tiles = new LinkedList<>();
-    private final LinkedList<Stock> stocks = new LinkedList<>();
+    @Getter private final LinkedList<Stock> stocks = new LinkedList<>();
     @Getter @Setter private int stockPrice = 0;
 
     /**

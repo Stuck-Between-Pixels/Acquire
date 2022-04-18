@@ -32,7 +32,7 @@ public class Originator {
 
     }
 
-    public void gameRestore(File file){
+    public Board gameRestore(File file){
 
     }
 }
