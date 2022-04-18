@@ -1,4 +1,4 @@
-[Documentation](../javadoc/index.html)
+[Documentation](javadoc/index.html)
 
 
 ## Welcome to GitHub Pages
