@@ -32,7 +32,6 @@ import lombok.Setter;
  */
 public class Stock {
     @Getter private final Corporation corp;
-    @Getter @Setter private int price = 0;
 
     /**
      * Constructs a Stock with the given {@link Corporation} as its corporation

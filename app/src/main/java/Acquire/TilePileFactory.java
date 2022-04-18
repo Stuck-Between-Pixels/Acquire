@@ -41,7 +41,7 @@ public class TilePileFactory extends AbstractFactory {
      */
     @Override
     public Object[] createList() {
-        ArrayList<Tile> tiles = new ArrayList<>(NUM_OF_TILES);
+        ArrayList<Tile> tiles = new ArrayList<>();
         for (int i=0; i<NUM_OF_TILES; i++) {
             tiles.add(new Tile(i));
         }

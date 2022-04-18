@@ -35,36 +35,35 @@ import java.util.*;
  * @author Grant Madson
  */
 public class Board {
-    @Getter private final TilePileIterator tiles;
-    @Getter @Setter private Stock[] stocks;
+    private final TilePileIterator tiles;
     @Getter private final Corporation[] corporations;
     @Getter private final ArrayList<Player> players;
+    private Iterator<Player> playerSequence;
     @Getter private final ArrayList<Tile> tilesPlaced;
     @Getter private Player currentTurn;
 
     /**
      *The constructor for the board object.
      *
-     * @param tiles
-     * @param stocks
-     * @param corporations
-     * @param players
-     * @param tilesPlaced
-     * @param currentTurn
+     * @param tiles This is a TilePileIterator containing the tiles that have yet to be distributed.
+     * @param corporations This is a list of the games corporations.
+     * @param players These are the games current players.
+     * @param tilesPlaced This is an arrayList of the tiles that have already been placed.
+     * @param currentTurn This is the player whose turn it currently is.
      */
-    public Board(TilePileIterator tiles, Stock[] stocks, Corporation[] corporations, ArrayList<Player> players, ArrayList<Tile> tilesPlaced, Player currentTurn) {
+    public Board(TilePileIterator tiles, Corporation[] corporations, ArrayList<Player> players, ArrayList<Tile> tilesPlaced, Player currentTurn) {
         this.tiles = tiles;
-        this.stocks = stocks;
         this.corporations = corporations;
         this.players = players;
         this.tilesPlaced = tilesPlaced;
         this.currentTurn = currentTurn;
+        playerSequence = players.iterator();
     }
 
     /**
      * Places a tile onto the board. Does this utilizing an ArrayList.
      * @see Tile
-     * @param tile
+     * @param tile This is the tile to be placed.
      */
     public void placeTile(Tile tile){
         tilesPlaced.add(tile);
@@ -90,7 +89,7 @@ public class Board {
      * @return a copy of the Board (note: local variables are passed along. Only Board is not passed.)
      */
     public Board getState(){
-        return new Board(this.tiles, this.stocks, this.corporations, this.players, this.tilesPlaced, this.currentTurn);
+        return new Board(this.tiles, this.corporations, this.players, this.tilesPlaced, this.currentTurn);
     }
 
     /**
@@ -105,5 +104,16 @@ public class Board {
         }else{
             throw new PlayerDoesntExistException("Player doesn't exist.");
         }
+    }
+
+    /**
+     *
+     *
+     */
+    public void nextTurn() {
+        if (!playerSequence.hasNext()) {
+            playerSequence = players.iterator();
+        }
+        currentTurn = playerSequence.next();
     }
 }
