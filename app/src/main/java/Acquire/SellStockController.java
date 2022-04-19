@@ -24,7 +24,8 @@ public class SellStockController {
     @FXML private Label stocksHeldLabel;
 
     private Player cur;
-    private Corporation corp;
+    private Corporation[] corps;
+    private int ndx;
 
     @FXML
     void cancelButtonClicked(ActionEvent event) {
@@ -36,21 +37,37 @@ public class SellStockController {
     void okButtonClicked(ActionEvent event) {
         //sell the selected stocks
         for (int i=0; i<stockSpinner.getValue(); i++) {
-            cur.removeStockByCorp(corp);
+            cur.removeStockByCorp(corps[ndx]);
         }
 
-        // close window
-        Stage stage = (Stage) okButton.getScene().getWindow();
-        stage.close();
+        if ((ndx + 1) == corps.length) {
+            // close window
+            Stage stage = (Stage) okButton.getScene().getWindow();
+            stage.close();
+        }
+        else {
+            ndx++;
+            nextCorp();
+        }
     }
 
-    public void setup(Acquire acquire, Corporation sellable) {
+    /**
+     * Sets up the sell stock screen
+     * @param acquire object for the game
+     * @param sellables array of corporations that have sellable stock
+     */
+    public void setup(Acquire acquire, Corporation[] sellables) {
+        if (sellables.length == 0) return;
         cur = acquire.getBoard().getCurrentTurn();
-        this.corp = sellable;
+        this.corps = sellables;
+        this.ndx = 0;
+        nextCorp();
+    }
 
+    private void nextCorp() {
         // configure spinner
         SpinnerValueFactory<Integer> stockValFac = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,
-                cur.getNumStockFromCorp(sellable),0);
+                cur.getNumStockFromCorp(corps[ndx]),0);
         stockValFac.valueProperty().addListener((obs, oldValue, newValue) ->
                 {
                 costOfSharesLabel.setText(Integer.toString(newValue * 800));
@@ -63,8 +80,11 @@ public class SellStockController {
         newBalanceLabel.setText("0");
         costOfSharesLabel.setText("0");
 
-        corpLabel.setText(sellable.getName());
-        stocksHeldLabel.setText(Integer.toString(cur.getNumStockFromCorp(sellable)));
+        corpLabel.setText(corps[ndx].getName());
+        stocksHeldLabel.setText(Integer.toString(cur.getNumStockFromCorp(corps[ndx])));
         stockCostLabel.setText("NEED TO FIX");
+
+        if ((ndx + 1) == corps.length) okButton.setText("OK");
+        else okButton.setText("NEXT");
     }
 }
