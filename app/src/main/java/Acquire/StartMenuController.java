@@ -20,10 +20,7 @@ import java.io.IOException;
 public class StartMenuController {
     // ----------- StartMenu.fxml control -----------
     @FXML
-    public static Button StartGameButton;
-
-    @FXML
-    public void StartGame() throws IOException {
+    public void StartGame(MouseEvent mouseEvent) throws IOException {
         NewOrLoadGameClass.Start(new Stage());
     }
 

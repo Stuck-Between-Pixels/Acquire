@@ -90,14 +90,6 @@ public class AcquireController {
 
         TilePile.addTiles(tiles);
 
-        var frame = new JFrame();
-        var icon = new ImageIcon((Image) tiles.get(10));
-        var label = new JLabel(icon);
-        frame.add(label);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
     }
 
     public void tilePile() {
