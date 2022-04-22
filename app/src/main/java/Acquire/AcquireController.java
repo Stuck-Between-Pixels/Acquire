@@ -3,6 +3,10 @@ package Acquire;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
@@ -13,56 +17,45 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Collection;
 import java.util.LinkedList;
 
 public class AcquireController {
     @FXML
-    public JFXButton ContinentalStockButton;
+    public static Text playerOneName;
 
     @FXML
-    public JFXButton SacksonStockButton;
+    public static Text playerTwoName;
 
     @FXML
-    public JFXButton ImperialStockButton;
+    public static Text playerThreeName;
 
     @FXML
-    public JFXButton FestivalStockButton;
+    public static Text playerFourName;
 
     @FXML
-    public JFXButton TowerStockButton;
+    public static Text playerOneMoney;
 
     @FXML
-    public JFXButton AmericanStockButton;
+    public static Text playerTwoMoney;
 
     @FXML
-    public JFXButton WordlwideStockButton;
+    public static Text playerThreeMoney;
 
     @FXML
-    public JFXButton ContinentalBuilding;
+    public static Text playerFourMoney;
 
-    @FXML
-    public JFXButton SacksonBuilding;
-
-    @FXML
-    public JFXButton ImperialBuilding;
-
-    @FXML
-    public JFXButton FestivalBuilding;
-
-    @FXML
-    public JFXButton TowerBuilding;
-
-    @FXML
-    public JFXButton AmericanBuilding;
-
-    @FXML
-    public JFXButton WorldwideBuilding;
+    public static void editFonts() {
+        Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
+        playerOneName.setFont(thePrada20);
+    }
 
     @FXML
     public synchronized void ContinentalStockDrag(DragEvent event) {
 
     }
+
+
+
 
     @FXML
     public void moveTile() {
@@ -96,14 +89,6 @@ public class AcquireController {
 
 
         TilePile.addTiles(tiles);
-
-        var frame = new JFrame();
-        var icon = new ImageIcon((Image) tiles.get(10));
-        var label = new JLabel(icon);
-        frame.add(label);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
 
     }
 
@@ -168,5 +153,10 @@ public class AcquireController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    @FXML
+    public void boardGridPane(MouseEvent mouseEvent) {
     }
 }
