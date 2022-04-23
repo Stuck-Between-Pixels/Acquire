@@ -26,10 +26,10 @@ package Acquire;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class MainGame extends Application {
+public class MainGame  {
     
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
-    }
+//    @Override
+//    public void start(Stage primaryStage) throws Exception {
+//
+//    }
 }
