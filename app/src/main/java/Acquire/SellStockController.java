@@ -2,13 +2,18 @@ package Acquire;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,14 +32,26 @@ public class SellStockController {
     private Corporation[] corps;
     private int ndx;
 
-    @FXML
-    void cancelButtonClicked(ActionEvent event) {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+    private void loadMerge(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Merge.FXML"));
+
+        Scene scene = new Scene(loader.load());
+        stage.setResizable(true);
+        stage.setTitle("Merge Stock");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void okButtonClicked(ActionEvent event) {
+    void cancelButtonClicked(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+
+        loadMerge(stage);
+    }
+
+    @FXML
+    void okButtonClicked(ActionEvent event) throws IOException {
         //sell the selected stocks
         for (int i=0; i<stockSpinner.getValue(); i++) {
             cur.removeStockByCorp(corps[ndx]);
@@ -42,8 +59,10 @@ public class SellStockController {
 
         if ((ndx + 1) == corps.length) {
             // close window
-            Stage stage = (Stage) okButton.getScene().getWindow();
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.close();
+
+            loadMerge(stage);
         }
         else {
             ndx++;
