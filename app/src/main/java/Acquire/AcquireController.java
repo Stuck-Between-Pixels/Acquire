@@ -23,8 +23,10 @@
  */
 package Acquire;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
+import javafx.fxml.Initializable;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
@@ -40,37 +42,39 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
-public class AcquireController {
+public class AcquireController implements Initializable {
     @FXML
-    public static Text playerOneName;
-
-    @FXML
-    public static Text playerTwoName;
+    public Text playerOneName;
 
     @FXML
-    public static Text playerThreeName;
+    public Text playerTwoName;
 
     @FXML
-    public static Text playerFourName;
+    public Text playerThreeName;
 
     @FXML
-    public static Text playerOneMoney;
+    public Text playerFourName;
 
     @FXML
-    public static Text playerTwoMoney;
+    public Text playerOneMoney;
 
     @FXML
-    public static Text playerThreeMoney;
+    public Text playerTwoMoney;
 
     @FXML
-    public static Text playerFourMoney;
+    public Text playerThreeMoney;
 
-    public static void editFonts() {
-        Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
-        playerOneName.setFont(thePrada20);
-    }
+    @FXML
+    public Text playerFourMoney;
+
+//    public static void editFonts() {
+//        Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
+//        playerOneName.setFont(thePrada20);
+//    }
 
     @FXML
     public synchronized void ContinentalStockDrag(DragEvent event) {
@@ -92,28 +96,28 @@ public class AcquireController {
     private int[][]  tilePositions = new int[board_width][board_length];
 
 
-    @FXML
-    public static void listOfImages() {
-        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
-        int tileSpot = 12;
-        int number = 1;
-        String letter = "A";
-        BufferedImage img = null;
-
-        LinkedList tiles = new LinkedList();
-
-
-        try {
-            img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(number)) + letter + ".png"));
-            tiles.add(img);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        TilePile.addTiles(tiles);
-
-    }
+//    @FXML
+//    public static void listOfImages() {
+//        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
+//        int tileSpot = 12;
+//        int number = 1;
+//        String letter = "A";
+//        BufferedImage img = null;
+//
+//        LinkedList tiles = new LinkedList();
+//
+//
+//        try {
+//            img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(number)) + letter + ".png"));
+//            tiles.add(img);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        TilePile.addTiles(tiles);
+//
+//    }
 
     public void tilePile() {
         String path = "../../resources/images/Tiles/"; //File name goes here
@@ -181,5 +185,12 @@ public class AcquireController {
 
     @FXML
     public void boardGridPane(MouseEvent mouseEvent) {
+    }
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+        Platform.runLater(() -> {
+            playerOneName.setText("yeet");
+        });
     }
 }
