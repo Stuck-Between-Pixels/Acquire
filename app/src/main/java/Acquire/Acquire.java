@@ -24,6 +24,8 @@
 package Acquire;
 
 import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,6 +41,7 @@ import java.util.Arrays;
 public class Acquire {
     private Board board;
     private Originator save = new Originator();
+    private Logger logger = LoggerFactory.getLogger(Acquire.class);
 
     @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
             new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
@@ -64,7 +67,7 @@ public class Acquire {
     }
 
     public ArrayList<Player> getPlayers(){
-        return null;
+        return board.getPlayers();
     }
 
     public ArrayList<Tile> tilesOnBoard(){
@@ -80,7 +83,17 @@ public class Acquire {
     }
 
     public void newGame(String player1, String player2, String player3, String player4){
+        ArrayList<Player> players = new ArrayList<>(Arrays.asList(new Player(player1),
+                new Player(player2), new Player(player3), new Player(player4)));
 
+        TilePileFactory tilePileFactory = new TilePileFactory();
+        TilePile[] tilePile = (TilePile[]) tilePileFactory.createList();
+        ArrayList<Tile> tilesPlaced = new ArrayList<>();
+        board = new Board(tilePile[0].iterator(),
+                corps,
+                players,
+                tilesPlaced,
+                players.get(0));
     }
 
     public void loadGame(File file) throws IOException {
@@ -88,7 +101,12 @@ public class Acquire {
     }
 
     public void saveGame(File file){
-
+        try {
+            save.gameSave(file, this.board);
+        } catch (IOException e) {
+            logger.error("Bad file");
+            logger.debug(String.valueOf(e));
+        }
     }
 
     public void buyStock(Stock stock, Player player){

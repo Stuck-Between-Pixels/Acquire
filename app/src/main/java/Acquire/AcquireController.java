@@ -25,6 +25,7 @@ package Acquire;
 
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
+import javafx.fxml.Initializable;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
@@ -40,7 +41,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 public class AcquireController {
     @FXML
@@ -66,6 +69,9 @@ public class AcquireController {
 
     @FXML
     public static Text playerFourMoney;
+    public JFXButton endGameButton;
+    public JFXButton discardTilesButton;
+    public JFXButton endTurnButton;
 
     public static void editFonts() {
         Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
@@ -181,5 +187,18 @@ public class AcquireController {
 
     @FXML
     public void boardGridPane(MouseEvent mouseEvent) {
+    }
+
+    public void setPlayers(String player1Name, String player2Name, String player3name, String player4Name,
+                           String player1Money, String player2Money, String player3Money, String player4Money){
+        playerOneName.setText(player1Name);
+        playerTwoName.setText(player2Name);
+        playerThreeName.setText(player3name);
+        playerFourName.setText(player4Name);
+
+        playerOneMoney.setText(player1Money);
+        playerTwoMoney.setText(player2Money);
+        playerThreeMoney.setText(player3Money);
+        playerFourMoney.setText(player4Money);
     }
 }

@@ -25,7 +25,35 @@ package Acquire;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+<<<<<<< Updated upstream
 
 public class AcquireClass extends Scene {
     public AcquireClass(Parent root) { super(root); }
+=======
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
+
+public class AcquireClass extends Scene {
+    public AcquireClass(Parent root) { super(root); }
+
+    public static void Start(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.FXML"));
+        Scene scene = new Scene(loader.load());
+
+        loader = loader.load(Objects.requireNonNull(AcquireClass.class.getResource("Acquire.FXML"))).openStream();
+        AcquireController controller = (AcquireController) loader.getController();
+
+        Acquire game = (Acquire) stage.getUserData();
+
+        controller.setPlayers(game.getPlayers().get(0).getName(), game.getPlayers().get(1).getName(), game.getPlayers().get(2).getName(), game.getPlayers().get(3).getName(),
+                String.valueOf(game.getPlayers().get(0).getMoney()),String.valueOf(game.getPlayers().get(1).getMoney()),String.valueOf(game.getPlayers().get(2).getMoney()),String.valueOf(game.getPlayers().get(3).getMoney()));
+
+
+        stage.setTitle("New Game - Acquire");
+        stage.setScene(scene);
+        stage.show();
+    }
+>>>>>>> Stashed changes
 }

@@ -32,6 +32,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import org.checkerframework.checker.units.qual.A;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -47,14 +48,8 @@ import java.net.URL;
 public class App extends Application {
 
 
-    private Acquire currentGame;
-    //private MainGame gameScreen;
-    private SaveScreen saveScreen;
-    private LoadScreen loadScreen;
-    private StartMenuClass startMenuClass;
-    private SellStock sellStockScreen;
-    private BuyStock buyStockScreen;
-    private Stage stage = new Stage();
+    private Acquire currentGame = new Acquire("","","","");
+    private final Stage stage = new Stage();
 
 
     /**
@@ -64,6 +59,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+<<<<<<< Updated upstream
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.FXML"));
 
         Scene scene = new Scene(loader.load());
@@ -73,6 +69,10 @@ public class App extends Application {
         stage.show();
 
         StartMenuClass.Start(new Stage());
+=======
+        this.stage.setUserData(this.currentGame);
+        StartMenuClass.Start(this.stage);
+>>>>>>> Stashed changes
     }
 
 
