@@ -116,6 +116,10 @@ public class Acquire {
         board.getCurrentTurn().giveTile(board.getTile());
     }
 
+    public Player getTurn(){
+        return board.getCurrentTurn();
+    }
+
     private boolean isTouchingCorp(){
         return false;
     }

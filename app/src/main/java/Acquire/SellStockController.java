@@ -58,7 +58,7 @@ public class SellStockController {
      */
     public void setup(Acquire acquire, Corporation[] sellables) {
         if (sellables.length == 0) return;
-        cur = acquire.getBoard().getCurrentTurn();
+        cur = acquire.getTurn();
         this.corps = sellables;
         this.ndx = 0;
         nextCorp();
