@@ -9,17 +9,18 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class BuyStock extends Scene {
-    public BuyStock(Parent root) {super(root);}
+public class NewOrLoadGameClass extends Scene {
+    public NewOrLoadGameClass(Parent root) {super(root);}
 
     public static void Start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("BuyStock.fxml"));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("NewOrLoadGame.FXML"));
 
-        Scene scene = new Scene(loader.load(), 500, 700);
+        Scene scene = new Scene(loader.load());
+        stage.setResizable(true);
         stage.initStyle(StageStyle.DECORATED);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Buy Stock");
+        stage.setTitle("Acquire - New Game");
         stage.setScene(scene);
-        stage.showAndWait();
+        stage.show();
     }
 }

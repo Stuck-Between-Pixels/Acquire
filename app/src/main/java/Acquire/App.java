@@ -31,6 +31,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
+
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
@@ -59,14 +64,15 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.FXML"));
 
         Scene scene = new Scene(loader.load());
-        stage.setResizable(true);
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Acquire");
+        stage.setTitle("New Game - Acquire");
         stage.setScene(scene);
         stage.show();
+
+        StartMenuClass.Start(new Stage());
     }
 
 
@@ -86,7 +92,9 @@ public class App extends Application {
      *
      * @param args  User-given command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         launch();
     }
+
+
 }

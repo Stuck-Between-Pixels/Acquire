@@ -33,7 +33,7 @@
           <RowConstraints maxHeight="589.6000244140625" minHeight="10.0" prefHeight="380.4000366210937" vgrow="SOMETIMES" />
       </rowConstraints>
         <children>
-            <Button fx:id="StartGame" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#NewOrLoadGame" prefHeight="70.0" prefWidth="270.0" style="-fx-background-color: #f3f9f9; -fx-border-color: #9ea7a7;" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#StartGame" prefHeight="70.0" prefWidth="270.0" style="-fx-background-color: #f3f9f9; -fx-border-color: #9ea7a7;" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                 <font>
                     <Font name="Cambria" size="35.0" />
                 </font>
