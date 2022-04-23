@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.StartMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.NewOrLoadGameController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-581.0" layoutY="-312.0" opacity="0.5">
          <image>
@@ -40,12 +33,12 @@
             </Text>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="62.0" prefWidth="368.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
-                  <JFXButton onMouseClicked="#LoadGame" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="180.0" text="Load Game">
+                  <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" onAction="#LoadGame" prefHeight="45.0" prefWidth="180.0" text="Load Game">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton onMouseClicked="#StartGame" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="170.0" text="New Game">
+                  <JFXButton maxHeight="-Infinity" maxWidth="-Infinity" onAction="#NewGame" prefHeight="45.0" prefWidth="170.0" text="New Game">
                      <font>
                         <Font size="21.0" />
                      </font>

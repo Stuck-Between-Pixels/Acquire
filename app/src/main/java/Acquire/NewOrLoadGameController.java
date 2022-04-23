@@ -1,5 +1,6 @@
 package Acquire;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,14 +12,13 @@ import java.io.IOException;
 
 public class NewOrLoadGameController {
     // ---------- NewOrLoadGame.fxml control ----------
-    public static void NewGame() throws IOException {
+    @FXML
+    public void NewGame() throws IOException {
         //Acquire.Start(new Stage());
     }
 
-
-
-
-    public void LoadGame(MouseEvent mouseEvent) {
+    @FXML
+    public void LoadGame() {
 
     }
 }

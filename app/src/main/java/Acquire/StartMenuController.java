@@ -24,6 +24,7 @@
 package Acquire;
 
 
+import javafx.event.Event;
 import javafx.scene.*;
 import javafx.stage.*;
 
@@ -43,13 +44,14 @@ import java.io.IOException;
 public class StartMenuController {
     // ----------- StartMenu.fxml control -----------
     @FXML
-    public void StartGame(MouseEvent mouseEvent) throws IOException {
-        NewOrLoadGameClass.Start(new Stage());
+    public void StartGame(Event event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        NewOrLoadGameClass.Start(stage);
     }
 
-
-    public void ExitButton(MouseEvent mouseEvent) {
-        Node node = (Node) mouseEvent.getSource();
+    @FXML
+    public void ExitButton(Event event) {
+        Node node = (Node) event.getSource();
         Window exitStage = node.getScene().getWindow();
         exitStage.hide();
     }
