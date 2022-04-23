@@ -30,8 +30,15 @@ public class MergerController {
     }
 
     @FXML
-    void tradeStock(ActionEvent event) {
+    void tradeStock(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("TradeStock.FXML"));
 
+        Scene scene = new Scene(loader.load());
+        stage.setResizable(true);
+        stage.setTitle("Trade Stock");
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

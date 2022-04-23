@@ -33,7 +33,7 @@ public class SellStockController {
     private int ndx;
 
     private void loadMerge(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Merge.FXML"));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Merger.FXML"));
 
         Scene scene = new Scene(loader.load());
         stage.setResizable(true);
@@ -45,8 +45,6 @@ public class SellStockController {
     @FXML
     void cancelButtonClicked(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.close();
-
         loadMerge(stage);
     }
 
@@ -60,8 +58,6 @@ public class SellStockController {
         if ((ndx + 1) == corps.length) {
             // close window
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            stage.close();
-
             loadMerge(stage);
         }
         else {
