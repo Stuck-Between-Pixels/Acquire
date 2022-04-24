@@ -17,7 +17,7 @@ public class NewOrLoadGameController {
     @FXML
     public void NewGame(Event event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        AcquireClass.Start(stage);
+        AcquireClass.Start(stage, new Acquire("a", "b", "c", "d"));
     }
 
     @FXML
