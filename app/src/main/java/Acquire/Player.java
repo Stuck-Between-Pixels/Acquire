@@ -26,6 +26,7 @@ package Acquire;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.nio.BufferOverflowException;
 import java.util.*;
@@ -175,5 +176,10 @@ public class Player {
      */
     public Iterator<Stock> stockIterator() {
         return stocks.iterator();
+    }
+
+    public Player compareTo(@NotNull Player other) {
+        if (this.getMoney() > other.getMoney()) return this;
+        else return other;
     }
 }
