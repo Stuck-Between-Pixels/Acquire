@@ -23,8 +23,15 @@
  */
 package Acquire;
 
+import javafx.scene.image.Image;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 /**
  * Extends {@link AbstractFactory} as an implementation of a factory which creates a {@link TilePile}.
@@ -39,15 +46,28 @@ public class TilePileFactory extends AbstractFactory {
      * the array to the user.
      * @return an array containing a {@link TilePile tile pile} created by the factory
      */
+
     @Override
     public Object[] createList() {
+        String path = "src/main/resources/images/";
+        int numberOfTiles = 108;
+
+        BufferedImage img = null;
+
         ArrayList<Tile> tiles = new ArrayList<>();
-        for (int i=0; i<NUM_OF_TILES; i++) {
-            tiles.add(new Tile(i));
+        for (int i = 1; i < numberOfTiles+1; i++) {
+            try {
+                img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(i)) + ".png"));
+                tiles.add(new Tile(i, img));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
         Collections.shuffle(tiles);
         TilePile pile = new TilePile();
         pile.addTiles(tiles);
         return new TilePile[]{pile};
     }
+
 }

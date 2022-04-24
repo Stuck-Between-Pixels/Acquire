@@ -64,7 +64,7 @@ public class Acquire {
     }
 
     public ArrayList<Player> getPlayers(){
-        return null;
+        return board.getPlayers();
     }
 
     public ArrayList<Tile> tilesOnBoard(){

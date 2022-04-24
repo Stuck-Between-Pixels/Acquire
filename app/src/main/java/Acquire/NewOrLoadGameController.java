@@ -1,6 +1,9 @@
 package Acquire;
 
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -11,14 +14,14 @@ import java.io.IOException;
 
 public class NewOrLoadGameController {
     // ---------- NewOrLoadGame.fxml control ----------
-    public static void NewGame() throws IOException {
-        //Acquire.Start(new Stage());
+    @FXML
+    public void NewGame(Event event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        AcquireClass.Start(stage, new Acquire("a", "b", "c", "d"));
     }
 
-
-
-
-    public void LoadGame(MouseEvent mouseEvent) {
+    @FXML
+    public void LoadGame() {
 
     }
 }

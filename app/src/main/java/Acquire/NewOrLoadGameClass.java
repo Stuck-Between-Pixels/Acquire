@@ -17,8 +17,6 @@ public class NewOrLoadGameClass extends Scene {
 
         Scene scene = new Scene(loader.load());
         stage.setResizable(true);
-        stage.initStyle(StageStyle.DECORATED);
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Acquire - New Game");
         stage.setScene(scene);
         stage.show();

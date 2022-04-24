@@ -23,8 +23,12 @@
  */
 package Acquire;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
+import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
@@ -33,64 +37,55 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 public class AcquireController {
     @FXML
-    public static Text playerOneName;
+    public Text playerOneName;
 
     @FXML
-    public static Text playerTwoName;
+    public Text playerTwoName;
 
     @FXML
-    public static Text playerThreeName;
+    public Text playerThreeName;
 
     @FXML
-    public static Text playerFourName;
+    public Text playerFourName;
 
     @FXML
-    public static Text playerOneMoney;
+    public Text playerOneMoney;
 
     @FXML
-    public static Text playerTwoMoney;
+    public Text playerTwoMoney;
 
     @FXML
-    public static Text playerThreeMoney;
+    public Text playerThreeMoney;
 
     @FXML
-    public static Text playerFourMoney;
+    public Text playerFourMoney;
 
-    public static void editFonts() {
+    public void editFonts() {
         Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
         playerOneName.setFont(thePrada20);
     }
 
     @FXML
-    public synchronized void ContinentalStockDrag(DragEvent event) {
-
-    }
-
-
-
+    public static JFXButton TileOne;
 
     @FXML
-    public void moveTile() {
-
-    }
-
-
-    private int board_width = 12;
-    private int board_length = 9;
-    private int totalPositions = 108;
-    private int[][]  tilePositions = new int[board_width][board_length];
-
+    public static ImageView TileOneImg;
 
     @FXML
     public static void listOfImages() {
@@ -115,54 +110,35 @@ public class AcquireController {
 
     }
 
-    public void tilePile() {
-        String path = "../../resources/images/Tiles/"; //File name goes here
-        String letter = "A";
-        Integer number = 1;
 
-        String string = letter + number;
-        int result = 0;
-        switch(string.charAt(1)){
+    @FXML
+    public void NewTile(ActionEvent event) {
+        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\3.png";
 
-            case 'A' -> {
-                result = 0;
-            }
+        TilePile[] tilePile = (TilePile[]) new TilePileFactory().createList();
+        Iterator<Tile> tile = tilePile[0].iterator();
 
-            case 'B' -> {
-                result = 13;
-            }
+        //TileOneImg.setImage(new Image(path));
 
-            case 'C' -> {
-                result = 13*2;
-            }
-
-            case 'D' -> {
-                result = 13*3;
-            }
-
-            case 'E' -> {
-                result = 13*4;
-            }
-
-            case 'F' -> {
-                result = 13*5;
-            }
-
-            case 'G' -> {
-                result = 13*6;
-            }
-
-            case 'H' -> {
-                result = 13*7;
-            }
-
-            case 'I' -> {
-                result = 13*8;
-            }
-
-        }
-        result = result + Integer.parseInt(String.valueOf(string.charAt(0)));
     }
+
+
+
+    public static void imageTest() {
+
+        TilePile[] tilePile = (TilePile[]) new TilePileFactory().createList();
+        Iterator<Tile> tile = tilePile[0].iterator();
+        BufferedImage tile1 = tile.next().getTileImage();
+        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\3.png";
+
+        JFrame frame = new JFrame();
+        //ImageIcon icon = new ImageIcon(tile1);
+        ImageIcon icon = new ImageIcon(path);
+        frame.add(new JLabel(icon));
+        frame.pack();
+        frame.setVisible(true);
+    }
+
 
     @FXML
     public void buyStockButton() throws IOException {
@@ -181,5 +157,14 @@ public class AcquireController {
 
     @FXML
     public void boardGridPane(MouseEvent mouseEvent) {
+    }
+
+    @FXML
+    public void TileOneClicked() {
+
+    }
+
+    public void setAcquire(Acquire acquire) {
+        playerOneName.setText(acquire.getPlayers().get(0).getName());
     }
 }

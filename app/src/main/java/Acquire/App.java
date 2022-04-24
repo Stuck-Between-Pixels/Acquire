@@ -64,14 +64,6 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.FXML"));
-
-        Scene scene = new Scene(loader.load());
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("New Game - Acquire");
-        stage.setScene(scene);
-        stage.show();
-
         StartMenuClass.Start(new Stage());
     }
 
