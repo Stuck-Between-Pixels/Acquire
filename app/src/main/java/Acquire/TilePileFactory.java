@@ -49,13 +49,13 @@ public class TilePileFactory extends AbstractFactory {
 
     @Override
     public Object[] createList() {
-        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
-        int numberOfTiles = Objects.requireNonNull(new File(path).list()).length;
+        String path = "src/main/resources/images/";
+        int numberOfTiles = 108;
 
         BufferedImage img = null;
 
         ArrayList<Tile> tiles = new ArrayList<>();
-        for (int i = 0; i < numberOfTiles; i++) {
+        for (int i = 1; i < numberOfTiles+1; i++) {
             try {
                 img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(i)) + ".png"));
                 tiles.add(new Tile(i, img));
