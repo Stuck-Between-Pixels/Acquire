@@ -494,7 +494,7 @@
                               </JFXButton>
                            </children>
                         </GridPane>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#buyStockButton" prefHeight="45.0" prefWidth="160.0" text="GAME RULES" textAlignment="CENTER" textFill="WHITE" wrapText="true" VBox.vgrow="SOMETIMES">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#hyperLinkClicked" prefHeight="45.0" prefWidth="160.0" text="GAME RULES" textAlignment="CENTER" textFill="WHITE" wrapText="true" VBox.vgrow="SOMETIMES">
                            <graphic>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c6f7bf" height="47.0" stroke="#9fc5f8" strokeLineCap="ROUND" strokeWidth="2.0" width="159.0" />
                            </graphic>
