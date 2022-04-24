@@ -25,9 +25,14 @@ package Acquire;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -37,6 +42,7 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -66,6 +72,7 @@ public class AcquireController {
     @FXML public Button endTurnButton;
 
     private Acquire acquire;
+    private Boolean gameEnded = false;
 
     public void editFonts() {
         Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
@@ -155,9 +162,25 @@ public class AcquireController {
 
     }
 
+    private void loadResultsScreen(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("GameOver.FXML"));
+
+        Scene scene = new Scene(loader.load());
+        stage.setResizable(true);
+        stage.setTitle("Acquire - Game Results");
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @FXML
-    public void endTurnClicked() {
+    public void endTurnClicked(Event event) throws IOException {
         acquire.endTurn();
+
+        if (gameEnded) {
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            loadResultsScreen(stage);
+            return;
+        }
 
         if (acquire.currentPlayer() == acquire.getPlayers().get(3)) {
             playerTriangle.setTranslateY(0);
@@ -165,6 +188,27 @@ public class AcquireController {
         else {
             playerTriangle.setTranslateY(playerTriangle.getTranslateY() + 55);
         }
+    }
+
+    @FXML
+    public void endGameClicked() {
+        if (!acquire.endGame()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Can Not End Game");
+            alert.setHeaderText(null);
+            alert.setContentText("The conditions to end the game have not been met.");
+
+            alert.showAndWait();
+            return;
+        }
+        //else
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Game Ending");
+        alert.setHeaderText(null);
+        alert.setContentText("Game will end after this turn.");
+        alert.showAndWait();
+        gameEnded = true;
     }
 
     public void setAcquire(Acquire acquire) {

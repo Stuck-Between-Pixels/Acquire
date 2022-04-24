@@ -468,7 +468,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton fx:id="endGameButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="10.0" layoutY="142.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endTurnClicked" prefHeight="45.0" prefWidth="120.0" text="END GAME" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <JFXButton fx:id="endGameButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="10.0" layoutY="142.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endGameClicked" prefHeight="45.0" prefWidth="120.0" text="END GAME" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <graphic>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff0400bf" height="45.0" stroke="#d40602" strokeLineCap="ROUND" strokeWidth="2.0" width="120.0" />
                                  </graphic>
