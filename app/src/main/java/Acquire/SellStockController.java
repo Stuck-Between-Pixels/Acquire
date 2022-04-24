@@ -52,6 +52,7 @@ public class SellStockController {
     @FXML private Label stocksHeldLabel;
 
     private Player cur;
+    private Acquire acquire;
     private Corporation[] corps;
     private int ndx;
 
@@ -94,8 +95,9 @@ public class SellStockController {
      * @param acquire object for the game
      * @param sellables array of corporations that have sellable stock
      */
-    public void setup(Acquire acquire, Corporation[] sellables) {
+    public void setAcquire(Acquire acquire, Corporation[] sellables) {
         if (sellables.length == 0) return;
+        this.acquire = acquire;
         cur = acquire.getTurn();
         this.corps = sellables;
         this.ndx = 0;
@@ -108,9 +110,9 @@ public class SellStockController {
                 cur.getNumStockFromCorp(corps[ndx]),0);
         stockValFac.valueProperty().addListener((obs, oldValue, newValue) ->
                 {
-                costOfSharesLabel.setText(Integer.toString(newValue * 800));
-                newBalanceLabel.setText(Integer.toString(cur.getMoney() + (newValue * 800)));
-                });  // NEED TO FIX
+                costOfSharesLabel.setText(Integer.toString(newValue * corps[ndx].getStockPrice()));
+                newBalanceLabel.setText(Integer.toString(cur.getMoney() + (newValue * corps[ndx].getStockPrice())));
+                });
         this.stockSpinner.setValueFactory(stockValFac);
 
         //configure labels
@@ -120,7 +122,7 @@ public class SellStockController {
 
         corpLabel.setText(corps[ndx].getName());
         stocksHeldLabel.setText(Integer.toString(cur.getNumStockFromCorp(corps[ndx])));
-        stockCostLabel.setText("NEED TO FIX");
+        stockCostLabel.setText(Integer.toString(corps[ndx].getStockPrice()));
 
         if ((ndx + 1) == corps.length) okButton.setText("OK");
         else okButton.setText("NEXT");

@@ -27,12 +27,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MergerController {
+
+    private Acquire acquire;
 
     @FXML
     void endTurn(ActionEvent event) {
@@ -45,7 +48,10 @@ public class MergerController {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(App.class.getResource("SellStock.FXML"));
 
-        Scene scene = new Scene(loader.load());
+        Parent root = loader.load();
+        SellStockController controller = loader.<SellStockController>getController();
+        controller.setAcquire(acquire, new Corporation[]{new Corporation("Hello Corp")});
+        Scene scene = new Scene(root);
         stage.setResizable(true);
         stage.setTitle("Sell Stock");
         stage.setScene(scene);
@@ -64,4 +70,7 @@ public class MergerController {
         stage.show();
     }
 
+    public void setAcquire(Acquire acquire) {
+        this.acquire = acquire;
+    }
 }

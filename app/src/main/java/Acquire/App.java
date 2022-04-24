@@ -46,16 +46,7 @@ import java.net.URL;
  */
 public class App extends Application {
 
-
-    private Acquire currentGame;
-    //private MainGame gameScreen;
-    private SaveScreen saveScreen;
-    private LoadScreen loadScreen;
-    private StartMenuClass startMenuClass;
-    private SellStock sellStockScreen;
-    private BuyStock buyStockScreen;
     private Stage stage = new Stage();
-
 
     /**
      * The start method for the application. Displays the starting menu and all buttons associated with it
