@@ -23,7 +23,10 @@
  */
 package Acquire;
 
+import javafx.scene.image.Image;
 import lombok.Getter;
+
+import java.awt.image.BufferedImage;
 
 /**
  * Tile class which represents a game tile. This class holds information about a tile's position.
@@ -32,11 +35,14 @@ import lombok.Getter;
 public class Tile {
     @Getter private final int position;
 
+    @Getter BufferedImage tileImage;
+
     /**
      * Constructs a Tile object with the given position. The tile's position will act as an identifier.
      * @param position to give the tile as an identifier
      */
-    public Tile(int position) {
+    public Tile(int position, BufferedImage tileImage) {
         this.position = position;
+        this.tileImage = tileImage;
     }
 }

@@ -35,11 +35,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -71,102 +73,71 @@ public class AcquireController {
     @FXML
     public Text playerFourMoney;
 
-//    public static void editFonts() {
-//        Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
-//        playerOneName.setFont(thePrada20);
-//    }
-
-    @FXML
-    public synchronized void ContinentalStockDrag(DragEvent event) {
-
+    public static void editFonts() {
+        Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
+        playerOneName.setFont(thePrada20);
     }
 
+    @FXML
+    public static JFXButton TileOne;
+
+    @FXML
+    public static ImageView TileOneImg;
 
 
 
     @FXML
-    public void moveTile() {
-
-    }
-
-
-    private int board_width = 12;
-    private int board_length = 9;
-    private int totalPositions = 108;
-    private int[][]  tilePositions = new int[board_width][board_length];
-
-
-//    @FXML
-//    public static void listOfImages() {
-//        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
-//        int tileSpot = 12;
-//        int number = 1;
-//        String letter = "A";
-//        BufferedImage img = null;
-//
-//        LinkedList tiles = new LinkedList();
-//
-//
-//        try {
-//            img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(number)) + letter + ".png"));
-//            tiles.add(img);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        TilePile.addTiles(tiles);
-//
-//    }
-
-    public void tilePile() {
-        String path = "../../resources/images/Tiles/"; //File name goes here
+    public static void listOfImages() {
+        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
+        int tileSpot = 12;
+        int number = 1;
         String letter = "A";
-        Integer number = 1;
+        BufferedImage img = null;
 
-        String string = letter + number;
-        int result = 0;
-        switch(string.charAt(1)){
+        LinkedList tiles = new LinkedList();
 
-            case 'A' -> {
-                result = 0;
-            }
 
-            case 'B' -> {
-                result = 13;
-            }
-
-            case 'C' -> {
-                result = 13*2;
-            }
-
-            case 'D' -> {
-                result = 13*3;
-            }
-
-            case 'E' -> {
-                result = 13*4;
-            }
-
-            case 'F' -> {
-                result = 13*5;
-            }
-
-            case 'G' -> {
-                result = 13*6;
-            }
-
-            case 'H' -> {
-                result = 13*7;
-            }
-
-            case 'I' -> {
-                result = 13*8;
-            }
-
+        try {
+            img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(number)) + letter + ".png"));
+            tiles.add(img);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        result = result + Integer.parseInt(String.valueOf(string.charAt(0)));
+
+
+        TilePile.addTiles(tiles);
+
     }
+
+
+    @FXML
+    public void NewTile(ActionEvent event) {
+        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\3.png";
+
+        TilePile[] tilePile = (TilePile[]) new TilePileFactory().createList();
+        Iterator<Tile> tile = tilePile[0].iterator();
+
+        //TileOneImg.setImage(new Image(path));
+
+    }
+
+
+
+    public static void imageTest() {
+
+        TilePile[] tilePile = (TilePile[]) new TilePileFactory().createList();
+        Iterator<Tile> tile = tilePile[0].iterator();
+        BufferedImage tile1 = tile.next().getTileImage();
+        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\3.png";
+
+        JFrame frame = new JFrame();
+        //ImageIcon icon = new ImageIcon(tile1);
+        ImageIcon icon = new ImageIcon(path);
+        frame.add(new JLabel(icon));
+        frame.pack();
+        frame.setVisible(true);
+    }
+
 
     @FXML
     public void buyStockButton() throws IOException {

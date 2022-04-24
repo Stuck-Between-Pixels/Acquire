@@ -32,15 +32,26 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.AcquireController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.AcquireController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0">
          <image>
@@ -75,7 +86,7 @@
                       <RowConstraints maxHeight="329.8000244140625" minHeight="10.0" prefHeight="101.60003662109375" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <GridPane onDragDetected="#boardGridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="730.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#boardGridPane" prefHeight="547.0" prefWidth="730.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -104,6 +115,11 @@
                            <GridPane.margin>
                               <Insets top="10.0" />
                            </GridPane.margin>
+                           <children>
+                              <Pane fx:id="OneA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Pane fx:id="OneB" layoutX="9.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" GridPane.rowIndex="1" />
+                              <Pane fx:id="OneC" layoutX="10.0" layoutY="71.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" GridPane.rowIndex="2" />
+                           </children>
                         </GridPane>
                         <ImageView fitHeight="547.0" fitWidth="764.0" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
                            <image>
@@ -133,46 +149,77 @@
                             <RowConstraints maxHeight="62.0" minHeight="62.0" prefHeight="62.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="10.0" layoutY="10.0" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true" GridPane.columnIndex="2">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true" GridPane.columnIndex="3">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="217.0" layoutY="10.0" preserveRatio="true" GridPane.columnIndex="4">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="287.0" layoutY="10.0" preserveRatio="true" GridPane.columnIndex="5">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="356.0" layoutY="10.0" preserveRatio="true" GridPane.columnIndex="6">
-                                 <image>
-                                    <Image url="@../images/Tiles/Blank.png" />
-                                 </image>
-                              </ImageView>
-                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="7">
+                              <JFXButton fx:id="TileOne" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#TileOneClicked" prefHeight="62.0" prefWidth="62.0" text="TileOne" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fx:id="TileOneImg" fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXButton fx:id="TileTwo" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileTwo" GridPane.columnIndex="1">
                                  <graphic>
                                     <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/Tiles/Blank.png" />
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileThree" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileThree" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileFour" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileFour" GridPane.columnIndex="3">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileFive" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileFive" GridPane.columnIndex="4">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileSix" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileSix" GridPane.columnIndex="5">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileSeven" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="346.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileSeven" GridPane.columnIndex="6">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton onAction="#NewTile" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="7">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -412,7 +459,7 @@
                               <Insets top="40.0" />
                            </VBox.margin>
                            <children>
-                              <JFXButton fx:id="buyStockButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="120.0" style="-fx-font-family: url(&quot;\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf&quot;);" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <JFXButton fx:id="buyStockButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="120.0" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <graphic>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00991abf" height="45.0" stroke="#007113" strokeLineCap="ROUND" strokeWidth="2.0" width="120.0" />
                                  </graphic>
