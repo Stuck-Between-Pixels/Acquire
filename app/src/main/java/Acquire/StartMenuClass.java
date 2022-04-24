@@ -38,8 +38,9 @@ public class StartMenuClass extends Scene {
 
     public static void Start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("StartMenu.FXML"));
-
         Scene scene = new Scene(loader.load());
+        StartMenuController controller = loader.getController();
+        controller.setStage(stage);
         stage.setResizable(true);
         stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("Acquire");

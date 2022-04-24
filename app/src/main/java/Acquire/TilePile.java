@@ -36,14 +36,14 @@ import java.util.Objects;
  * @author Ben Thomas
  */
 public class TilePile {
-   private static final LinkedList<Tile> tiles = new LinkedList<>();
+   private final LinkedList<Tile> tiles = new LinkedList<>();
 
 
     /**
      * Adds the given collection of {@link Tile tiles} to the TilePile
      * @param newTiles to add to the tile pile
      */
-    public static void addTiles(Collection<Tile> newTiles) {
+    public void addTiles(Collection<Tile> newTiles) {
         tiles.addAll(newTiles);
     }
 

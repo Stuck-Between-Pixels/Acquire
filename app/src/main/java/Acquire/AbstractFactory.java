@@ -28,6 +28,7 @@ package Acquire;
  * implement. Factories are used to protect the creation logic of their subsequent objects.
  * @see TilePileFactory
  * @see StocksFactory
+ * @see TilePileFactory
  * @see PlayerListFactory
  * @author Ben Thomas
  */

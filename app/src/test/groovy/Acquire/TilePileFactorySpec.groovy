@@ -28,9 +28,9 @@ import spock.lang.Specification
 class TilePileFactorySpec extends Specification {
     def "TilePile creation size"() {
         given:
-        def factory = new TilePileFactory()
-        def pileArray = factory.createList()
-        def pile = pileArray[0]
+        TilePileFactory factory = new TilePileFactory()
+        Object[] pileArray = factory.createList()
+        TilePile pile = pileArray[0] as TilePile
 
         when:
         def size = pile.size()

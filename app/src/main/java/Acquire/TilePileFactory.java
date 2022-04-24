@@ -67,7 +67,7 @@ public class TilePileFactory extends AbstractFactory {
         Collections.shuffle(tiles);
         TilePile pile = new TilePile();
         pile.addTiles(tiles);
-        return new TilePile[]{pile};
+        return new Object[]{pile};
     }
 
 }

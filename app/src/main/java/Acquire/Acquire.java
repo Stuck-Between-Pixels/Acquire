@@ -38,25 +38,14 @@ import java.util.Arrays;
  */
 public class Acquire {
     private Board board;
-    private Originator save = new Originator();
+    private final Originator save = new Originator();
 
     @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
             new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
             new Corporation("Tower"), new Corporation("Worldwide")};
 
     public Acquire(String player1, String player2, String player3, String player4) {
-
-        ArrayList<Player> players = new ArrayList<>(Arrays.asList(new Player(player1),
-                new Player(player2), new Player(player3), new Player(player4)));
-
-        TilePileFactory tilePileFactory = new TilePileFactory();
-        TilePile[] tilePile = (TilePile[]) tilePileFactory.createList();
-        ArrayList<Tile> tilesPlaced = new ArrayList<>();
-        board = new Board(tilePile[0].iterator(),
-                corps,
-                players,
-                tilesPlaced,
-                players.get(0));
+        newGame(player1, player2, player3, player4);
     }
 
     public Acquire(Board board) {
@@ -77,6 +66,7 @@ public class Acquire {
 
     public void placeTile(Tile tile){
         //TODO add exception if tile cant be placed due to safe
+        board.placeTile(tile);
     }
 
     public Corporation[] getCorporations(){
@@ -84,7 +74,17 @@ public class Acquire {
     }
 
     public void newGame(String player1, String player2, String player3, String player4){
+        ArrayList<Player> players = new ArrayList<>(Arrays.asList(new Player(player1),
+                new Player(player2), new Player(player3), new Player(player4)));
 
+        TilePileFactory tilePileFactory = new TilePileFactory();
+        TilePile[] tilePile = (TilePile[]) tilePileFactory.createList();
+        ArrayList<Tile> tilesPlaced = new ArrayList<>();
+        board = new Board(tilePile[0].iterator(),
+                corps,
+                players,
+                tilesPlaced,
+                players.get(0));
     }
 
     public void loadGame(File file) throws IOException {
@@ -112,8 +112,9 @@ public class Acquire {
         return count == board.getCorporations().length;
     }
 
-    public void endTurn(){
-        board.nextTurn();
+    public void endTurn() throws TurnNotOverException {
+       // board.nextTurn();
+        throw new TurnNotOverException("bing bong bitch");
     }
 
     public void giveTile(Player player){
@@ -135,4 +136,5 @@ public class Acquire {
     private void merge(Corporation[] corps){
 
     }
+
 }

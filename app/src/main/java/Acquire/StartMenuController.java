@@ -27,17 +27,28 @@ package Acquire;
 import javafx.event.Event;
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
 
 public class StartMenuController {
+    private Stage stage;
+
     // ----------- StartMenu.fxml control -----------
     @FXML
     public void StartGame(Event event) throws IOException {
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        NewOrLoadGameClass.Start(stage);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewOrLoadGame.FXML"));
+        Scene scene = loader.load();
+        stage.setTitle("Start Game");
+        NewOrLoadGameController controller = loader.getController();
+        //controller.setAcquire();
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
@@ -45,5 +56,9 @@ public class StartMenuController {
         Node node = (Node) event.getSource();
         Window exitStage = node.getScene().getWindow();
         exitStage.hide();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

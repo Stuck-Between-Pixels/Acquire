@@ -57,7 +57,7 @@ public class Board {
         this.players = players;
         this.tilesPlaced = tilesPlaced;
         this.currentTurn = currentTurn;
-        playerSequence = players.iterator();
+        this.playerSequence = players.iterator();
     }
 
     /**
@@ -107,7 +107,7 @@ public class Board {
     }
 
     /**
-     *
+     * Advances the player turn to the next player in line.
      *
      */
     public void nextTurn() {

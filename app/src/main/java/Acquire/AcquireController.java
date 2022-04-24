@@ -78,29 +78,6 @@ public class AcquireController {
     @FXML
     public static ImageView TileOneImg;
 
-    @FXML
-    public static void listOfImages() {
-        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\";
-        int tileSpot = 12;
-        int number = 1;
-        String letter = "A";
-        BufferedImage img = null;
-
-        LinkedList tiles = new LinkedList();
-
-
-        try {
-            img = ImageIO.read(new File(path + Integer.parseInt(String.valueOf(number)) + letter + ".png"));
-            tiles.add(img);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        TilePile.addTiles(tiles);
-
-    }
-
 
     @FXML
     public void NewTile(ActionEvent event) {
@@ -157,7 +134,11 @@ public class AcquireController {
 
     @FXML
     public void endTurnClicked() {
-        acquire.endTurn();
+        try {
+            acquire.endTurn();
+        } catch (TurnNotOverException e) {
+            e.printStackTrace();
+        }
 
         if (acquire.currentPlayer() == acquire.getPlayers().get(3)) {
             playerTriangle.setTranslateY(0);

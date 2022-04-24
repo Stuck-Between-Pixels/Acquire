@@ -38,7 +38,7 @@ public class NewOrLoadGameClass extends Scene {
     public static void Start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("NewOrLoadGame.FXML"));
 
-        Scene scene = new Scene(loader.load());
+        Scene scene = loader.load();
         stage.setResizable(true);
         stage.setTitle("Acquire - New Game");
         stage.setScene(scene);

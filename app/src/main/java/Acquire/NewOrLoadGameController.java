@@ -37,6 +37,9 @@ import java.io.IOException;
 
 public class NewOrLoadGameController {
     // ---------- NewOrLoadGame.fxml control ----------
+
+    Acquire game;
+
     @FXML
     public void NewGame(Event event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -46,5 +49,9 @@ public class NewOrLoadGameController {
     @FXML
     public void LoadGame() {
 
+    }
+
+    public void setAcquire(Acquire game){
+        this.game = game;
     }
 }
