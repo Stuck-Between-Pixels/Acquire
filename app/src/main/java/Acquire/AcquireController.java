@@ -62,6 +62,7 @@ public class AcquireController {
     @FXML public Text playerThreeMoney;
     @FXML public Text playerFourMoney;
     @FXML public Polygon playerTriangle;
+    @FXML public Button endTurnButton;
 
     private Acquire acquire;
 
