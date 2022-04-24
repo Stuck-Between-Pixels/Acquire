@@ -79,6 +79,7 @@ javafx {
 
 license {
     header = project.file('LICENSE')
+    exclude(["**/*.png", "**/*.fxml"] as String)
 }
 
 jacoco {
