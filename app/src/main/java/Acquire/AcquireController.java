@@ -31,6 +31,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -165,7 +166,10 @@ public class AcquireController {
     private void loadResultsScreen(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("GameOver.FXML"));
 
-        Scene scene = new Scene(loader.load());
+        Parent root = loader.load();
+        GameOverController controller = loader.<GameOverController>getController();
+        controller.setAcquire(acquire);
+        Scene scene = new Scene(root);
         stage.setResizable(true);
         stage.setTitle("Acquire - Game Results");
         stage.setScene(scene);
