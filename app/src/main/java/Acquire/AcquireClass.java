@@ -34,9 +34,14 @@ public class AcquireClass extends Scene {
     public AcquireClass(Parent root) { super(root); }
 
     public static void Start(Stage stage) throws IOException {
+        Acquire acquire = new Acquire("a", "b", "c", "d");
+
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.FXML"));
 
-        Scene scene = new Scene(loader.load());
+        Parent root = loader.load();
+        AcquireController controller = loader.<AcquireController>getController();
+        controller.setAcquire(acquire);
+        Scene scene = new Scene(root);
         stage.setTitle("New Game - Acquire");
         stage.setScene(scene);
         stage.show();

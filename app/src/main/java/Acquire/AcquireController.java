@@ -46,7 +46,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
-public class AcquireController implements Initializable {
+public class AcquireController {
     @FXML
     public Text playerOneName;
 
@@ -187,10 +187,7 @@ public class AcquireController implements Initializable {
     public void boardGridPane(MouseEvent mouseEvent) {
     }
 
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(() -> {
-            playerOneName.setText("yeet");
-        });
+    public void setAcquire(Acquire acquire) {
+        playerOneName.setText(acquire.getPlayers().get(0).getName());
     }
 }
