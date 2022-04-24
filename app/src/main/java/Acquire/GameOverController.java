@@ -32,6 +32,11 @@ public class GameOverController {
         playerThreeMoney.setText(Integer.toString(acquire.getPlayers().get(2).getMoney()));
         playerFourMoney.setText(Integer.toString(acquire.getPlayers().get(3).getMoney()));
 
+        playerOneTag.setText(acquire.getPlayers().get(0).getName() + "'s Money:");
+        playerTwoTag.setText(acquire.getPlayers().get(1).getName() + "'s Money:");
+        playerThreeTag.setText(acquire.getPlayers().get(2).getName() + "'s Money:");
+        playerFourTag.setText(acquire.getPlayers().get(3).getName() + "'s Money:");
+
         Player winner = acquire.getPlayers().get(0).compareTo(acquire.getPlayers().get(1));
         winner = winner.compareTo(acquire.getPlayers().get(2));
         winner = winner.compareTo(acquire.getPlayers().get(3));
