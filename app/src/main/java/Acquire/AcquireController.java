@@ -25,6 +25,8 @@ package Acquire;
 
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
+import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
@@ -35,13 +37,17 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 public class AcquireController implements Initializable {
     @FXML
@@ -68,10 +74,13 @@ public class AcquireController implements Initializable {
     @FXML
     public Text playerFourMoney;
 
+    /**
+     * Not Working?
     public static void editFonts() {
         Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
         playerOneName.setFont(thePrada20);
     }
+     */
 
     @FXML
     public static JFXButton TileOne;
@@ -151,5 +160,10 @@ public class AcquireController implements Initializable {
 
     @FXML
     public void boardGridPane(MouseEvent mouseEvent) {
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
