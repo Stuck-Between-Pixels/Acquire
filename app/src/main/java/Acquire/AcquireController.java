@@ -168,5 +168,8 @@ public class AcquireController {
     public void setAcquire(Acquire acquire) {
         this.acquire = acquire;
         playerOneName.setText(acquire.getPlayers().get(0).getName());
+        playerTwoName.setText(acquire.getPlayers().get(1).getName());
+        playerThreeName.setText(acquire.getPlayers().get(2).getName());
+        playerFourName.setText(acquire.getPlayers().get(3).getName());
     }
 }
