@@ -32,26 +32,17 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.AcquireController">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.AcquireController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0">
          <image>
@@ -215,7 +206,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <JFXButton onAction="#NewTile" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="7">
+                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" onAction="#NewTile" prefHeight="62.0" prefWidth="62.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="7">
                                  <graphic>
                                     <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
                                        <image>
@@ -444,6 +435,16 @@
                                     </Text>
                                  </children>
                               </StackPane>
+                              <Polygon fx:id="playerTriangle" fill="#1fff59" rotate="-90.0" scaleX="0.25" scaleY="0.25" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                <points>
+                                  <Double fx:value="-50.0" />
+                                  <Double fx:value="40.0" />
+                                  <Double fx:value="50.0" />
+                                  <Double fx:value="40.0" />
+                                  <Double fx:value="0.0" />
+                                  <Double fx:value="-60.0" />
+                                </points>
+                              </Polygon>
                            </children>
                         </GridPane>
                         <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="153.0" prefWidth="310.0">
@@ -467,7 +468,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton fx:id="endGameButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="10.0" layoutY="142.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#buyStockButton" prefHeight="45.0" prefWidth="120.0" text="END GAME" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <JFXButton fx:id="endGameButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="10.0" layoutY="142.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endTurnClicked" prefHeight="45.0" prefWidth="120.0" text="END GAME" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <graphic>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff0400bf" height="45.0" stroke="#d40602" strokeLineCap="ROUND" strokeWidth="2.0" width="120.0" />
                                  </graphic>
@@ -483,7 +484,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton fx:id="endTurnButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#buyStockButton" prefHeight="66.0" prefWidth="119.0" text="END TURN" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <JFXButton fx:id="endTurnButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endTurnClicked" prefHeight="66.0" prefWidth="119.0" text="END TURN" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <graphic>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c6f7bf" height="65.0" stroke="#9fc5f8" strokeLineCap="ROUND" width="120.0" />
                                  </graphic>

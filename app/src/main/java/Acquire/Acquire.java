@@ -67,6 +67,10 @@ public class Acquire {
         return board.getPlayers();
     }
 
+    public Player currentPlayer() {
+        return board.getCurrentTurn();
+    }
+
     public ArrayList<Tile> tilesOnBoard(){
         return board.getTilesPlaced();
     }

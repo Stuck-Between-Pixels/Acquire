@@ -32,6 +32,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -52,29 +53,17 @@ import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class AcquireController {
-    @FXML
-    public Text playerOneName;
+    @FXML public Text playerOneName;
+    @FXML public Text playerTwoName;
+    @FXML public Text playerThreeName;
+    @FXML public Text playerFourName;
+    @FXML public Text playerOneMoney;
+    @FXML public Text playerTwoMoney;
+    @FXML public Text playerThreeMoney;
+    @FXML public Text playerFourMoney;
+    @FXML public Polygon playerTriangle;
 
-    @FXML
-    public Text playerTwoName;
-
-    @FXML
-    public Text playerThreeName;
-
-    @FXML
-    public Text playerFourName;
-
-    @FXML
-    public Text playerOneMoney;
-
-    @FXML
-    public Text playerTwoMoney;
-
-    @FXML
-    public Text playerThreeMoney;
-
-    @FXML
-    public Text playerFourMoney;
+    private Acquire acquire;
 
     public void editFonts() {
         Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
@@ -164,7 +153,20 @@ public class AcquireController {
 
     }
 
+    @FXML
+    public void endTurnClicked() {
+        acquire.endTurn();
+
+        if (acquire.currentPlayer() == acquire.getPlayers().get(3)) {
+            playerTriangle.setTranslateY(0);
+        }
+        else {
+            playerTriangle.setTranslateY(playerTriangle.getTranslateY() + 55);
+        }
+    }
+
     public void setAcquire(Acquire acquire) {
+        this.acquire = acquire;
         playerOneName.setText(acquire.getPlayers().get(0).getName());
     }
 }
