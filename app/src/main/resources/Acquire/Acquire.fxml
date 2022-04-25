@@ -140,7 +140,7 @@
                             <RowConstraints maxHeight="62.0" minHeight="62.0" prefHeight="62.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <JFXButton fx:id="TileOne" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#TileOneClicked" prefHeight="62.0" prefWidth="62.0" text="TileOne" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                              <JFXButton fx:id="TileOne" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileOne" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                  <graphic>
                                     <ImageView fx:id="TileOneImg" fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
                                        <image>
@@ -484,7 +484,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton fx:id="EndTurnButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endTurnClicked" prefHeight="66.0" prefWidth="119.0" text="END TURN" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <JFXButton fx:id="endTurnButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endTurnClicked" prefHeight="66.0" prefWidth="119.0" text="END TURN" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <graphic>
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c6f7bf" height="65.0" stroke="#9fc5f8" strokeLineCap="ROUND" width="120.0" />
                                  </graphic>
