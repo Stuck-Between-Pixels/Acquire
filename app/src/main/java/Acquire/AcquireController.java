@@ -28,13 +28,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -49,6 +43,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -59,6 +54,20 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.util.ResourceBundle;
+
+public class AcquireController implements Initializable {
+    @FXML
+    public Text playerOneName;
+
+    @FXML
+    public Text playerTwoName;
+
+    @FXML
+    public Text playerThreeName;
+
+    @FXML
+    public Text playerFourName;
 
 public class AcquireController {
     @FXML public Text playerOneName;
@@ -75,10 +84,20 @@ public class AcquireController {
     private Acquire acquire;
     private Boolean gameEnded = false;
 
+    @FXML
+    public Text playerThreeMoney;
+
+    @FXML
+    public Text playerFourMoney;
+
+    /**
+     * Not Working?
+    public static void editFonts() {
     public void editFonts() {
         Font thePrada20 = Font.loadFont("\\Acquire\\app\\src\\main\\resources\\ThePrada-K72gD.ttf", 20);
         playerOneName.setFont(thePrada20);
     }
+     */
 
     @FXML
     public JFXButton TileOne;
@@ -99,7 +118,7 @@ public class AcquireController {
 
 
 
-    public void imageTest() {
+    public static void imageTest() {
 
         TilePile[] tilePile = (TilePile[]) new TilePileFactory().createList();
         Iterator<Tile> tile = tilePile[0].iterator();
@@ -132,11 +151,6 @@ public class AcquireController {
 
     @FXML
     public void boardGridPane(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    public void TileOneClicked() {
-
     }
 
     private void loadResultsScreen(Stage stage) throws IOException {
@@ -197,5 +211,10 @@ public class AcquireController {
         playerTwoName.setText(acquire.getPlayers().get(1).getName());
         playerThreeName.setText(acquire.getPlayers().get(2).getName());
         playerFourName.setText(acquire.getPlayers().get(3).getName());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
