@@ -56,7 +56,7 @@ public class AcquireController implements Initializable {
     @FXML public Text playerThreeMoney;
     @FXML public Text playerFourMoney;
     @FXML public Polygon playerTriangle;
-    @FXML public Button endTurnButton;
+    @FXML public Button EndTurnButton;
 
     private Acquire acquire;
     private Boolean gameEnded = false;
