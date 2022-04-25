@@ -25,6 +25,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - build.gradle file to include JFoenix and JLink
 - Main Game UI to include a link to the rules
 
+## [v1.1.0] - [2022-04-24]
+### Added
+- Working buttons and more functionality 
+- The ability to start new game
+
+### Changed
+- Almost everything so that it would run
+
 ## [v1.0.0] - [2022-04-10]
 ### Added
 - main functionality
