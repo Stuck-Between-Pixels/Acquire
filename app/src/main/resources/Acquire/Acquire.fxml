@@ -32,134 +32,504 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="1080.0" maxWidth="1920.0" minHeight="640.0" minWidth="340.0" pickOnBounds="false" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-   </rowConstraints>
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Acquire.AcquireController">
    <children>
-      <StackPane maxHeight="1494.0" maxWidth="1920.0" minHeight="640.0" minWidth="340.0" prefHeight="768.0" prefWidth="1878.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
-         <children>
-            <ImageView fitHeight="1080.0" fitWidth="1920.0">
-               <image>
-                  <Image url="@../images/whitebrickBG.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </StackPane>
-      <GridPane maxHeight="1080.0" maxWidth="1920.0" minHeight="640.0" minWidth="340.0" prefHeight="768.0" prefWidth="1366.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0">
+         <image>
+            <Image url="@../images/whitebrickBG.jpg" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="5.0" layoutY="1.0" maxHeight="1080.0" maxWidth="1920.0" minHeight="570.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="175.0" minHeight="30.0" prefHeight="125.6" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="685.6000091552735" minHeight="10.0" prefHeight="643.2" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="691.6000274658203" minHeight="10.0" prefHeight="665.9999908447265" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="120.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="1000.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
-               <GridPane.margin>
-                  <Insets left="30.0" top="20.0" />
-               </GridPane.margin>
-            </Rectangle>
             <GridPane GridPane.rowIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="499.599951171875" minHeight="10.0" prefHeight="497.9999755859375" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="285.200048828125" minHeight="10.0" prefHeight="94.80002441406248" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-            <GridPane maxWidth="1920.0" minWidth="340.0" prefHeight="643.0" prefWidth="1349.0" GridPane.rowIndex="1">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="210.4000244140625" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1052.1999877929688" minWidth="10.0" prefWidth="1049.5999755859375" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="0.0" prefWidth="220.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="955.2000732421875" minWidth="10.0" prefWidth="809.4000244140625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.4000488281249" minWidth="300.0" prefWidth="338.1999755859374" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="610.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="185.0">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="15.0" />
-                     </GridPane.margin></Rectangle>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                  <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="606.1999389648438" minHeight="10.0" prefHeight="577.5999633789063" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="329.8000244140625" minHeight="10.0" prefHeight="101.60003662109375" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
+                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#boardGridPane" prefHeight="547.0" prefWidth="730.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <GridPane.margin>
+                              <Insets top="10.0" />
+                           </GridPane.margin>
+                           <children>
+                              <Pane fx:id="OneA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Pane fx:id="OneB" layoutX="9.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" GridPane.rowIndex="1" />
+                              <Pane fx:id="OneC" layoutX="10.0" layoutY="71.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <ImageView fitHeight="547.0" fitWidth="764.0" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="TOP" GridPane.vgrow="SOMETIMES">
                            <image>
-                              <Image url="@../images/BuildingPlaceholders/Continental_Building.png" />
+                              <Image url="@../images/gameboard.png" />
                            </image>
+                           <GridPane.margin>
+                              <Insets top="20.0" />
+                           </GridPane.margin>
                         </ImageView>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/BuildingPlaceholders/Imperial_Building.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/BuildingPlaceholders/Tower_Building.png" />
-                           </image>
-                        </ImageView>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="89.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" width="490.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets right="40.0" />
+                           </GridPane.margin>
+                        </Rectangle>
+                        <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="562.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="62.0" prefWidth="73.60001602172852" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="10.0" prefWidth="63.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="62.0" prefWidth="62.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="10.0" prefWidth="62.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="62.0" prefWidth="62.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="62.0" prefWidth="62.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="62.0" prefWidth="62.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="62.0" minWidth="62.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="62.0" minHeight="62.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <JFXButton fx:id="TileOne" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileOne" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fx:id="TileOneImg" fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="OPEN_HAND" />
+                                 </cursor>
+                              </JFXButton>
+                              <JFXButton fx:id="TileTwo" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileTwo" GridPane.columnIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileThree" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileThree" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileFour" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileFour" GridPane.columnIndex="3">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileFive" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileFive" GridPane.columnIndex="4">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileSix" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileSix" GridPane.columnIndex="5">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="TileSeven" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="346.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="62.0" text="TileSeven" GridPane.columnIndex="6">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" onAction="#NewTile" prefHeight="62.0" prefWidth="62.0" text="New Tile" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="7">
+                                 <graphic>
+                                    <ImageView fitHeight="62.0" fitWidth="62.0" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/Blank.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Cambria" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </JFXButton>
+                           </children>
+                           <GridPane.margin>
+                              <Insets left="55.0" />
+                           </GridPane.margin>
+                        </GridPane>
                      </children>
-                     <padding>
-                        <Insets left="30.0" top="25.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                  </GridPane>
+                  <VBox alignment="TOP_CENTER" prefHeight="663.0" prefWidth="267.0">
                      <children>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/BuildingPlaceholders/Sackson_Building.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/BuildingPlaceholders/Festival_Building.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="200.0" fitWidth="70.0" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/BuildingPlaceholders/American_Building.png" />
-                           </image>
-                        </ImageView>
+                        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0" VBox.vgrow="SOMETIMES">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="124.0" fitWidth="62.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Continental_Building.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fitHeight="124.0" fitWidth="62.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Imperial_Building.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="124.0" fitWidth="64.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Tower_Building.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="124.0" fitWidth="64.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Sackson_Building.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="124.0" fitWidth="64.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Festival_Building.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="124.0" fitWidth="62.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/American_Building.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="237.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="124.0" fitWidth="62.0" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@../images/BuildingPlaceholders/Worldwide_Building.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </GridPane>
                      </children>
-                     <padding>
-                        <Insets left="120.0" top="25.0" />
-                     </padding>
-                  </VBox>
-                  <ImageView fitHeight="200.0" fitWidth="70.0" nodeOrientation="INHERIT" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
-                     <image>
-                        <Image url="@../images/BuildingPlaceholders/Worldwide_Building.png" />
-                     </image>
                      <GridPane.margin>
-                        <Insets top="445.0" />
+                        <Insets top="15.0" />
                      </GridPane.margin>
-                  </ImageView>
-                  <VBox maxHeight="700.0" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="184.0" spacing="10.0">
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
                      <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="324.0" vgap="10.0" VBox.vgrow="SOMETIMES">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="157.199951171875" minWidth="10.0" prefWidth="46.39999999999998" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <VBox.margin>
+                              <Insets top="70.0" />
+                           </VBox.margin>
+                           <children>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="250.0">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ea9999" height="45.0" stroke="#cf2a27" strokeType="INSIDE" width="250.0" />
+                                    <Text fx:id="playerOneName" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" StackPane.alignment="CENTER_LEFT">
+                                       <StackPane.margin>
+                                          <Insets left="10.0" />
+                                       </StackPane.margin>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Money: " StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="65.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text fx:id="playerOneMoney" layoutX="114.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$6,000" StackPane.alignment="CENTER_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets right="10.0" />
+                                       </StackPane.margin>
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </StackPane>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fc5f8" height="45.0" stroke="#2b78e4" strokeType="INSIDE" width="250.0" />
+                                    <Text fx:id="playerTwoName" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" StackPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets left="10.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Money: " StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="65.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text fx:id="playerTwoMoney" strokeType="OUTSIDE" strokeWidth="0.0" text="\$6,000" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="10.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="10.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4a7d6" height="45.0" stroke="#9900ff" strokeType="INSIDE" width="250.0" />
+                                    <Text fx:id="playerThreeName" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" StackPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets left="10.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Money: " StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="65.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text fx:id="playerThreeMoney" strokeType="OUTSIDE" strokeWidth="0.0" text="\$6,000" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="10.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="10.0" layoutY="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b6d7a8" height="45.0" stroke="#009e0f" strokeType="INSIDE" width="250.0" />
+                                    <Text fx:id="playerFourName" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" StackPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets left="10.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Money: " StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="65.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                    <Text fx:id="playerFourMoney" strokeType="OUTSIDE" strokeWidth="0.0" text="\$6,000" StackPane.alignment="CENTER_RIGHT">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                       <StackPane.margin>
+                                          <Insets right="10.0" />
+                                       </StackPane.margin>
+                                    </Text>
+                                 </children>
+                              </StackPane>
+                              <Polygon fx:id="playerTriangle" fill="#1fff59" rotate="-90.0" scaleX="0.25" scaleY="0.25" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                <points>
+                                  <Double fx:value="-50.0" />
+                                  <Double fx:value="40.0" />
+                                  <Double fx:value="50.0" />
+                                  <Double fx:value="40.0" />
+                                  <Double fx:value="0.0" />
+                                  <Double fx:value="-60.0" />
+                                </points>
+                              </Polygon>
+                           </children>
+                        </GridPane>
+                        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="153.0" prefWidth="310.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <children>
+                              <JFXButton fx:id="buyStockButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="120.0" text="BUY STOCK" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00991abf" height="45.0" stroke="#007113" strokeLineCap="ROUND" strokeWidth="2.0" width="120.0" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="endGameButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="10.0" layoutY="142.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endGameClicked" prefHeight="45.0" prefWidth="120.0" text="END GAME" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff0400bf" height="45.0" stroke="#d40602" strokeLineCap="ROUND" strokeWidth="2.0" width="120.0" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="discardTilesButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#buyStockButton" prefHeight="65.0" prefWidth="120.0" text="DISCARD &#10;TILE(S)" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00991abf" height="65.0" stroke="#007113" strokeLineCap="ROUND" strokeWidth="2.0" width="122.0" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="endTurnButton" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#endTurnClicked" prefHeight="66.0" prefWidth="119.0" text="END TURN" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c6f7bf" height="65.0" stroke="#9fc5f8" strokeLineCap="ROUND" width="120.0" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#hyperLinkClicked" prefHeight="45.0" prefWidth="160.0" text="GAME RULES" textAlignment="CENTER" textFill="WHITE" wrapText="true" VBox.vgrow="SOMETIMES">
+                           <graphic>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c6f7bf" height="47.0" stroke="#9fc5f8" strokeLineCap="ROUND" strokeWidth="2.0" width="159.0" />
+                           </graphic>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="75.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXButton>
                      </children>
-                     <GridPane.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </GridPane.margin>
                   </VBox>
                </children>
             </GridPane>
+            <MenuBar prefWidth="1390.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </GridPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2bf" height="124.0" stroke="#dfdbdb" strokeLineCap="ROUND" strokeWidth="5.0" visible="false" width="900.0" />
    </children>
-</GridPane>
+</AnchorPane>

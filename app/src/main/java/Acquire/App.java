@@ -24,15 +24,9 @@
 package Acquire;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import java.io.IOException;
-import java.net.URL;
 
 /**
  * A controller class to start and update the user interface
@@ -41,16 +35,7 @@ import java.net.URL;
  */
 public class App extends Application {
 
-
-    private Acquire currentGame;
-    //private MainGame gameScreen;
-    private SaveScreen saveScreen;
-    private LoadScreen loadScreen;
-    private StartMenuClass startMenuClass;
-    private SellStock sellStockScreen;
-    private BuyStock buyStockScreen;
     private Stage stage = new Stage();
-
 
     /**
      * The start method for the application. Displays the starting menu and all buttons associated with it
@@ -59,14 +44,7 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.fxml"));
-
-        Scene scene = new Scene(loader.load());
-        stage.setResizable(true);
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Acquire");
-        stage.setScene(scene);
-        stage.show();
+        StartMenuClass.Start(new Stage());
     }
 
 
@@ -89,4 +67,6 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+
 }

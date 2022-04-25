@@ -23,21 +23,27 @@
  */
 package Acquire;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Objects;
 
 /**
  * Contains a collection of tiles that can be drawn from using an iterator.
  * @author Ben Thomas
  */
 public class TilePile {
-    private final LinkedList<Tile> tiles = new LinkedList<>();
+   private static final LinkedList<Tile> tiles = new LinkedList<>();
+
 
     /**
      * Adds the given collection of {@link Tile tiles} to the TilePile
      * @param newTiles to add to the tile pile
      */
-    public void addTiles(Collection<Tile> newTiles) {
+    public static void addTiles(Collection<Tile> newTiles) {
         tiles.addAll(newTiles);
     }
 
@@ -50,10 +56,11 @@ public class TilePile {
     }
 
     /**
-     * Retries the number of tiles the tile pile is holding
+     * Returns the number of tiles the tile pile is holding
      * @return number of tiles in the tile pile
      */
     public int size() {
         return tiles.size();
     }
+
 }

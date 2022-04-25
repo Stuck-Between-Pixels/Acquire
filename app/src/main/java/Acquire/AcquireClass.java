@@ -23,9 +23,25 @@
  */
 package Acquire;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class AcquireClass extends Scene {
     public AcquireClass(Parent root) { super(root); }
+
+    public static void Start(Stage stage, Acquire acquire) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Acquire.FXML"));
+
+        Parent root = loader.load();
+        AcquireController controller = loader.<AcquireController>getController();
+        controller.setAcquire(acquire);
+        Scene scene = new Scene(root);
+        stage.setTitle("New Game - Acquire");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

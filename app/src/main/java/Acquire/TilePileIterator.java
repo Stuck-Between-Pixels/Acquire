@@ -23,8 +23,6 @@
  */
 package Acquire;
 
-import lombok.NonNull;
-
 import java.util.*;
 
 /**
@@ -41,7 +39,7 @@ public class TilePileIterator implements Iterator<Tile> {
      * Constructs a new TilePileIterator object with a collection of tiles
      * @param tiles which the iterator will iterate through
      */
-    public TilePileIterator(@NonNull Collection<Tile> tiles) {
+    public TilePileIterator(LinkedList<Tile> tiles) {
         this.tiles = new LinkedList<>(tiles);
         this.tilePile = tiles;
     }

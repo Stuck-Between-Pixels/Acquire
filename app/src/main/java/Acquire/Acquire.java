@@ -23,7 +23,10 @@
  */
 package Acquire;
 
+import lombok.Getter;
+
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -35,25 +38,25 @@ import java.util.Arrays;
  */
 public class Acquire {
     private Board board;
-    private Originator save;
+    private Originator save = new Originator();
+
+    @Getter private final Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
+            new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
+            new Corporation("Tower"), new Corporation("Worldwide")};
 
     public Acquire(String player1, String player2, String player3, String player4) {
 
-        Corporation[] corps = {new Corporation("American"), new Corporation("Continental"),
-                new Corporation("Festival"), new Corporation("Imperial"), new Corporation("Sackson"),
-                new Corporation("Tower"), new Corporation("Worldwide")};
+        ArrayList<Player> players = new ArrayList<>(Arrays.asList(new Player(player1),
+                new Player(player2), new Player(player3), new Player(player4)));
 
-        int TOTAL_STOCK_NUM = 175;
-        StocksFactory stocksFactory = new StocksFactory();
-        Stock[] stocks = new Stock[TOTAL_STOCK_NUM];
-        for (Corporation corp : corps){
-
-        }
-
-        ArrayList<Player> players = new ArrayList<Player>(Arrays.asList(new Player(player1), new Player(player2), new Player(player3), new Player(player4)));
-
-        //this.board = new Board();
-        this.save = new Originator();
+        TilePileFactory tilePileFactory = new TilePileFactory();
+        TilePile[] tilePile = (TilePile[]) tilePileFactory.createList();
+        ArrayList<Tile> tilesPlaced = new ArrayList<>();
+        board = new Board(tilePile[0].iterator(),
+                corps,
+                players,
+                tilesPlaced,
+                players.get(0));
     }
 
     public Acquire(Board board) {
@@ -61,11 +64,15 @@ public class Acquire {
     }
 
     public ArrayList<Player> getPlayers(){
-        return null;
+        return board.getPlayers();
+    }
+
+    public Player currentPlayer() {
+        return board.getCurrentTurn();
     }
 
     public ArrayList<Tile> tilesOnBoard(){
-        return null;
+        return board.getTilesPlaced();
     }
 
     public void placeTile(Tile tile){
@@ -73,15 +80,15 @@ public class Acquire {
     }
 
     public Corporation[] getCorporations(){
-        return null;
+        return board.getCorporations();
     }
 
     public void newGame(String player1, String player2, String player3, String player4){
 
     }
 
-    public void loadGame(File file){
-
+    public void loadGame(File file) throws IOException {
+        board = save.gameRestore(file);
     }
 
     public void saveGame(File file){
@@ -89,18 +96,32 @@ public class Acquire {
     }
 
     public void buyStock(Stock stock, Player player){
-
+        if (player.getMoney() - stock.getCorp().getStockPrice() <= 0) return;
+        player.setMoney(player.getMoney() - stock.getCorp().getStockPrice());
+        player.addStock(stock);
     }
 
     public boolean endGame(){
-        return false;
+        int count = 0;
+        for (var corp : board.getCorporations()) {
+            if (corp.getNumTiles() < 41) return true;
+            if (corp.isSafe()) {
+                count++;
+            }
+        }
+        return count == board.getCorporations().length;
     }
 
     public void endTurn(){
-
+        board.nextTurn();
     }
 
     public void giveTile(Player player){
+        board.getCurrentTurn().giveTile(board.getTile());
+    }
+
+    public Player getTurn(){
+        return board.getCurrentTurn();
     }
 
     private boolean isTouchingCorp(){
