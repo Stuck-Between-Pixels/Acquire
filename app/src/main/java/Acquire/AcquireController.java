@@ -23,53 +23,30 @@
  */
 package Acquire;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXButton;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Polygon;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ResourceBundle;
 import java.util.ResourceBundle;
 
 public class AcquireController implements Initializable {
-    @FXML
-    public Text playerOneName;
-
-    @FXML
-    public Text playerTwoName;
-
-    @FXML
-    public Text playerThreeName;
-
-    @FXML
-    public Text playerFourName;
-
-public class AcquireController {
     @FXML public Text playerOneName;
     @FXML public Text playerTwoName;
     @FXML public Text playerThreeName;
@@ -84,11 +61,7 @@ public class AcquireController {
     private Acquire acquire;
     private Boolean gameEnded = false;
 
-    @FXML
-    public Text playerThreeMoney;
 
-    @FXML
-    public Text playerFourMoney;
 
     /**
      * Not Working?
@@ -116,22 +89,6 @@ public class AcquireController {
 
     }
 
-
-
-    public static void imageTest() {
-
-        TilePile[] tilePile = (TilePile[]) new TilePileFactory().createList();
-        Iterator<Tile> tile = tilePile[0].iterator();
-        BufferedImage tile1 = tile.next().getTileImage();
-        String path = "\\Acquire\\app\\src\\main\\resources\\images\\Tiles\\3.png";
-
-        JFrame frame = new JFrame();
-        //ImageIcon icon = new ImageIcon(tile1);
-        ImageIcon icon = new ImageIcon(path);
-        frame.add(new JLabel(icon));
-        frame.pack();
-        frame.setVisible(true);
-    }
 
 
     @FXML
